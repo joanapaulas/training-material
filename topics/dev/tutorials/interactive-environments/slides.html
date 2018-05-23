@@ -1,8 +1,67 @@
+<<<<<<< HEAD
 ---
 layout: tutorial_slides
 topic_name: dev
 tutorial_name: interactive-environments
 logo: "GTN"
+=======
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Galaxy Interactive Environments</title>
+    <link rel="stylesheet" href="/training-material/assets/css/slides.css">
+    <link rel="stylesheet" href="/training-material/assets/css/font-awesome.css" id="theme">
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+<div class="my-footer"><span>
+
+<img src="/training-material/assets/images/GTN-60px.png" alt="Galaxy Training Network" style="height: 40px;">
+
+</span></div>
+
+---
+
+# Galaxy Interactive Environments
+
+
+
+---
+
+
+
+
+
+### <img class="emoji" title=":grey_question:" alt=":grey_question:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2754.png" height="20" width="20" align="absmiddle"> Questions
+
+
+- What are Galaxy Interactive Environments (GIEs)?
+
+- How to enable GIEs in Galaxy?
+
+- How to develop your own GIE?
+
+
+---
+
+### <img class="emoji" title=":dart:" alt=":dart:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3af.png" height="20" width="20" align="absmiddle"> Objectives
+
+
+- Implement a Hello-World Galaxy Interactive Environment
+
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 ---
 
@@ -214,6 +273,7 @@ config/plugins/interactive_environments/helloworld/
 Create GIE plugin XML file `config/helloworld.xml`
 
 ```xml
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE interactive_environment SYSTEM "../../interactive_environments.dtd">
 <!-- This is the name which will show up in the User's Browser -->
@@ -236,6 +296,30 @@ Create GIE plugin XML file `config/helloworld.xml`
   <!-- Be sure that your entrypoint name is correct! -->
   <entry_point entry_point_type="mako">helloworld.mako</entry_point>
 </interactive_environment>
+=======
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE interactive_environment SYSTEM "../../interactive_environments.dtd"&gt;
+&lt;!-- This is the name which will show up in the User's Browser --&gt;
+&lt;interactive_environment name="HelloWorld"&gt;
+  &lt;data_sources&gt;
+    &lt;data_source&gt;
+      &lt;model_class&gt;HistoryDatasetAssociation&lt;/model_class&gt;
+
+      &lt;!-- filter which types of datasets are appropriate for this GIE --&gt;
+      &lt;test type="isinstance" test_attr="datatype"
+            result_type="datatype"&gt;tabular.Tabular&lt;/test&gt;
+      &lt;test type="isinstance" test_attr="datatype"
+            result_type="datatype"&gt;data.Text&lt;/test&gt;
+      &lt;to_param param_attr="id"&gt;dataset_id&lt;/to_param&gt;
+    &lt;/data_source&gt;
+  &lt;/data_sources&gt;
+  &lt;params&gt;
+    &lt;param type="dataset" var_name_in_template="hda" required="true"&gt;dataset_id&lt;/param&gt;
+  &lt;/params&gt;
+  &lt;!-- Be sure that your entrypoint name is correct! --&gt;
+  &lt;entry_point entry_point_type="mako"&gt;helloworld.mako&lt;/entry_point&gt;
+&lt;/interactive_environment&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```
 
 ---
@@ -278,8 +362,13 @@ image = hello-ie
   - attach dataset selected by user (`hda`)
 
 ```mako
+<<<<<<< HEAD
 <%namespace name="ie" file="ie.mako" />
 <%
+=======
+&lt;%namespace name="ie" file="ie.mako" /&gt;
+&lt;%
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 # Sets ID and sets up a lot of other variables
 ie_request.load_deploy_config()
 
@@ -308,6 +397,7 @@ ie_request.launch(
 # Only once the container is launched can we template our URLs. The ie_request
 # doesn't have all of the information needed until the container is running.
 url = ie_request.url_template('${PROXY_URL}/helloworld/')
+<<<<<<< HEAD
 %>
 
 <html>
@@ -316,17 +406,35 @@ ${ ie.load_default_js() }
 </head>
 <body>
 <script type="text/javascript">
+=======
+%&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+${ ie.load_default_js() }
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ${ ie.default_javascript_variables() }
 var url = '${ url }';
 ${ ie.plugin_require_config() }
 requirejs(['interactive_environments', 'plugin/helloworld'], function(){
     load_notebook(url);
 });
+<<<<<<< HEAD
 </script>
 <div id="main" width="100%" height="100%">
 </div>
 </body>
 </html>
+=======
+&lt;/script&gt;
+&lt;div id="main" width="100%" height="100%"&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```
 
 ---
@@ -346,7 +454,11 @@ function load_notebook(url){
 
 ### Hello World Example
 
+<<<<<<< HEAD
 - The only thing missing now is the GIE (Docker :whale:) container itself
+=======
+- The only thing missing now is the GIE (Docker <img class="emoji" title=":whale:" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png" height="20" width="20" align="absmiddle">) container itself
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 - Container typically consists of:
   - Dockerfile
   - Proxy configuration (e.g. nginx)
@@ -355,7 +467,11 @@ function load_notebook(url){
   - The actual application for the users (here: simple python process which serves
     directory contents of `/import` folder of container)
 
+<<<<<<< HEAD
 .footnote[ :whale:]
+=======
+.footnote[ <img class="emoji" title=":whale:" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png" height="20" width="20" align="absmiddle">]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ---
 
 ```dockerfile
@@ -372,7 +488,11 @@ ENV DEBIAN_FRONTEND=noninteractive \
     HISTORY_ID=none \
     REMOTE_HOST=none
 
+<<<<<<< HEAD
 RUN apt-get -qq update && \
+=======
+RUN apt-get -qq update &amp;&amp; \
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
     apt-get install --no-install-recommends -y \
     wget procps nginx python python-pip net-tools nginx
 
@@ -389,7 +509,11 @@ RUN mkdir /import
 [..]
 ```
 
+<<<<<<< HEAD
 .footnote[ :whale:]
+=======
+.footnote[ <img class="emoji" title=":whale:" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png" height="20" width="20" align="absmiddle">]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ---
 
 (continued)
@@ -407,7 +531,11 @@ EXPOSE 80
 CMD /startup.sh
 ```
 
+<<<<<<< HEAD
 .footnote[ :whale:]
+=======
+.footnote[ <img class="emoji" title=":whale:" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png" height="20" width="20" align="absmiddle">]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ---
 
 - Proxy configuration (nginx)
@@ -428,7 +556,11 @@ server {
 }
 ```
 
+<<<<<<< HEAD
 .footnote[ :whale:]
+=======
+.footnote[ <img class="emoji" title=":whale:" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png" height="20" width="20" align="absmiddle">]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ---
 
 - Create the `startup.sh` file which starts our directory listing service
@@ -443,17 +575,29 @@ cp /proxy.conf /etc/nginx/sites-enabled/default;
 
 # Here you would normally start whatever service you want to start. In our
 # example we start a simple directory listing service on port 8000
+<<<<<<< HEAD
 cd /import/ && python -mSimpleHTTPServer &
 
 # Launch traffic monitor which will automatically kill the container if
 # traffic stops
 /monitor_traffic.sh &
+=======
+cd /import/ &amp;&amp; python -mSimpleHTTPServer &amp;
+
+# Launch traffic monitor which will automatically kill the container if
+# traffic stops
+/monitor_traffic.sh &amp;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 # And finally launch nginx in foreground mode. This will make debugging
 # easier as logs will be available from `docker logs ...`
 nginx -g 'daemon off;'
 ```
 
+<<<<<<< HEAD
 .footnote[ :whale:]
+=======
+.footnote[ <img class="emoji" title=":whale:" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png" height="20" width="20" align="absmiddle">]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ---
 
 - Lastly, the script to monitor traffic and shut down if user is no longer connected, `monitor_traffic.sh`
@@ -468,7 +612,11 @@ while true; do
     fi
 done
 ```
+<<<<<<< HEAD
 .footnote[ :whale:]
+=======
+.footnote[ <img class="emoji" title=":whale:" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png" height="20" width="20" align="absmiddle">]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ---
 
 ### Hello World Example
@@ -485,3 +633,41 @@ $ docker build -t hello-ie .
 ![](../../images/vis_IE_helloworld.png)
 
 .footnote[Try it yourself: https://github.com/erasche/hello-world-interactive-environment]
+<<<<<<< HEAD
+=======
+
+
+---
+
+### <img class="emoji" title=":grey_exclamation:" alt=":grey_exclamation:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2755.png" height="20" width="20" align="absmiddle"> Key points
+
+
+- Interactive Environments offer access to third-party applications within Galaxy
+
+- Interactive Environments run in a docker images for sandboxing and easy dependency management
+
+
+
+---
+
+## Thank you!
+
+This material is the result of a collaborative work. Thanks the [Galaxy Training Network](https://wiki.galaxyproject.org/Teach/GTN) and all the contributors  (Saskia Hiltemann, Björn Grüning, Helena Rasche) !
+
+
+<img src="/training-material/assets/images/GTN.png" alt="Galaxy Training Network" style="height: 100px;">
+
+
+
+.footnote[Found a typo? Something is wrong in this tutorial? <br>Edit it on [GitHub](https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/interactive-environments/slides.html)]
+
+    </textarea>
+    <script src="/training-material/assets/js/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({navigation: {scroll: false,}});
+      var hljs = remark.highlighter.engine;
+    </script>
+  </body>
+</html>
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906

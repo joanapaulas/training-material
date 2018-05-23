@@ -6,7 +6,7 @@ SLIDES=$(shell find _site/training-material -name 'slides.html' | sed 's/_site\/
 SLIDES+=$(shell find _site/training-material/*/*/slides/* | sed 's/_site\/training-material\///')
 SITE_URL=http://localhost:4000/training-material
 PDF_DIR=_pdf
-REPO=$(shell echo "$${ORIGIN_REPO:-galaxyproject/training-material}")
+REPO=$(shell echo "$${ORIGIN_REPO:-joanapaulas/training-material}")
 BRANCH=$(shell echo "$${ORIGIN_BRANCH:-master}")
 
 ifeq ($(shell uname -s),Darwin)
@@ -32,7 +32,7 @@ check-html: build ## validate HTML
           --assume-extension \
           --http-status-ignore 405,503,999 \
           --url-ignore "/.*localhost.*/","/.*vimeo\.com.*/","/.*gitter\.im.*/","/.*drmaa\.org.*/" \
-          --url-swap "github.com/galaxyproject/training-material/tree/master:github.com/${REPO}/tree/${BRANCH}" \
+          --url-swap "github.com/joanapaulas/training-material/tree/master:github.com/${REPO}/tree/${BRANCH}" \
           --file-ignore "/.*\/files\/.*/","/.*\/node_modules\/.*/" \
           --allow-hash-href \
         ./_site

@@ -1,8 +1,72 @@
+<<<<<<< HEAD
 ---
 layout: tutorial_slides
 topic_name: dev
 tutorial_name: containers
 logo: "GTN"
+=======
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Tool Dependencies and Containers</title>
+    <link rel="stylesheet" href="/training-material/assets/css/slides.css">
+    <link rel="stylesheet" href="/training-material/assets/css/font-awesome.css" id="theme">
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+<div class="my-footer"><span>
+
+<img src="/training-material/assets/images/GTN-60px.png" alt="Galaxy Training Network" style="height: 40px;">
+
+</span></div>
+
+---
+
+# Tool Dependencies and Containers
+
+
+
+---
+
+
+
+
+
+### <img class="emoji" title=":grey_question:" alt=":grey_question:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2754.png" height="20" width="20" align="absmiddle"> Questions
+
+
+- What are the advantages of running my Galaxy tool inside of a container?
+
+- How does Galaxy find a container to run my tool in?
+
+- What are BioContainers and how are they related to Galaxy?
+
+
+---
+
+### <img class="emoji" title=":dart:" alt=":dart:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3af.png" height="20" width="20" align="absmiddle"> Objectives
+
+
+- Explore the differences between containerizing Galaxy and tool execution.
+
+- Discuss the advantages of containerizing tools.
+
+- Learn to build best practice tools ready to be containerized.
+
+
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ---
 
 ## Planemo
@@ -73,8 +137,13 @@ class: left
 
 Decomposes to basic problems:
 
+<<<<<<< HEAD
 * <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
 * <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+=======
+* &lt;i class="fa fa-square-o" aria-hidden="true"&gt;&lt;/i&gt; Instruct Galaxy where to find a container for the tool.
+* &lt;i class="fa fa-square-o" aria-hidden="true"&gt;&lt;/i&gt; Instruct Galaxy to run the tool in a container.
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 ---
 
@@ -85,20 +154,34 @@ class: left
 Just configure the destination. For instance, transform the cluster destination:
 
 ```
+<<<<<<< HEAD
 <destination id="short_fast" runner="slurm">
     <param id="nativeSpecification">--time=00:05:00 --nodes=1</param>
 </destination>
+=======
+&lt;destination id="short_fast" runner="slurm"&gt;
+    &lt;param id="nativeSpecification"&gt;--time=00:05:00 --nodes=1&lt;/param&gt;
+&lt;/destination&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```
 
 as follows:
 
 
 ```
+<<<<<<< HEAD
 <destination id="short_fast" runner="slurm">
     <param id="nativeSpecification">--time=00:05:00 --nodes=1</param>
     <param id="docker_enabled">true</parma>
     <param id="docker_sudo">false</param>
 </destination>
+=======
+&lt;destination id="short_fast" runner="slurm"&gt;
+    &lt;param id="nativeSpecification"&gt;--time=00:05:00 --nodes=1&lt;/param&gt;
+    &lt;param id="docker_enabled"&gt;true&lt;/parma&gt;
+    &lt;param id="docker_sudo"&gt;false&lt;/param&gt;
+&lt;/destination&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```
 
 That is it!
@@ -113,8 +196,13 @@ class: left
 
 #### Decomposes to basic problems
 
+<<<<<<< HEAD
 * <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
 * <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+=======
+* &lt;i class="fa fa-square-o" aria-hidden="true"&gt;&lt;/i&gt; Instruct Galaxy where to find a container for the tool.
+* &lt;i class="fa fa-check-square-o" aria-hidden="true"&gt;&lt;/i&gt; Instruct Galaxy to run the tool in a container.
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 ---
 
@@ -125,18 +213,31 @@ class: left
 Returning to the seqtk example, lets change the `requirements` from:
 
 ```
+<<<<<<< HEAD
 <requirements>
     <requirement type="package" version="1.2">seqtk</requirement>
 </requirements>
+=======
+&lt;requirements&gt;
+    &lt;requirement type="package" version="1.2"&gt;seqtk&lt;/requirement&gt;
+&lt;/requirements&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```
 
 into
 
 ```
+<<<<<<< HEAD
 <requirements>
     <container type="docker">dukegcb/seqtk</container>
     <requirement type="package" version="1.2">seqtk</requirement>
 </requirements>
+=======
+&lt;requirements&gt;
+    &lt;container type="docker"&gt;dukegcb/seqtk&lt;/container&gt;
+    &lt;requirement type="package" version="1.2"&gt;seqtk&lt;/requirement&gt;
+&lt;/requirements&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```
 
 Now run Planemo `test` and `serve` with the `--docker` flag and as a tool developer you are done!
@@ -147,8 +248,13 @@ Now run Planemo `test` and `serve` with the `--docker` flag and as a tool develo
 
 #### Decomposes to basic problems
 
+<<<<<<< HEAD
 * <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
 * <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+=======
+* &lt;i class="fa fa-check-square-o" aria-hidden="true"&gt;&lt;/i&gt; Instruct Galaxy where to find a container for the tool.
+* &lt;i class="fa fa-check-square-o" aria-hidden="true"&gt;&lt;/i&gt; Instruct Galaxy to run the tool in a container.
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 We're done... right?
 
@@ -172,9 +278,15 @@ class: left
 This:
 
 ```
+<<<<<<< HEAD
 <requirements>
     <requirement type="package" version="1.2">seqtk</requirement>
 </requirements>
+=======
+&lt;requirements&gt;
+    &lt;requirement type="package" version="1.2"&gt;seqtk&lt;/requirement&gt;
+&lt;/requirements&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```
 
 should have been sufficient!
@@ -229,7 +341,11 @@ $ planemo test --biocontainers seqtk_seq.xml
 [galaxy.tools.deps.containers] Checking with container resolver [ExplicitDockerContainerResolver[]] found description [None]
 [galaxy.tools.deps.containers] Checking with container resolver [CachedMulledDockerContainerResolver[namespace=None]] found description [None]
 [galaxy.tools.deps.containers] Checking with container resolver [MulledDockerContainerResolver[namespace=biocontainers]] found description [ContainerDescription[identifier=quay.io/biocontainers/seqtk:1.2--0,type=docker]]
+<<<<<<< HEAD
 [galaxy.jobs.command_factory] Built script [/tmp/tmpw8_UQm/job_working_directory/000/2/tool_script.sh] for tool command [seqtk seq -a '/tmp/tmpw8_UQm/files/000/dataset_1.dat' > '/tmp/tmpw8_UQm/files/000/dataset_2.dat']
+=======
+[galaxy.jobs.command_factory] Built script [/tmp/tmpw8_UQm/job_working_directory/000/2/tool_script.sh] for tool command [seqtk seq -a '/tmp/tmpw8_UQm/files/000/dataset_1.dat' &gt; '/tmp/tmpw8_UQm/files/000/dataset_2.dat']
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ...
 ok
 
@@ -293,8 +409,13 @@ These containers will have same names as would be published to quay.io (e.g. `qu
 
 #### Decomposes to basic problems
 
+<<<<<<< HEAD
 * <i class="fa fa-check-square-o" aria-hidden="true"></i><i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
 * <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+=======
+* &lt;i class="fa fa-check-square-o" aria-hidden="true"&gt;&lt;/i&gt;&lt;i class="fa fa-check-square-o" aria-hidden="true"&gt;&lt;/i&gt; Instruct Galaxy where to find a container for the tool.
+* &lt;i class="fa fa-check-square-o" aria-hidden="true"&gt;&lt;/i&gt; Instruct Galaxy to run the tool in a container.
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 We're done this time now right?
 
@@ -320,10 +441,17 @@ The BWA tool is an example of one such tool that has multiple requirements - bec
 $ planemo project_init --template=conda_testing conda_testing
 $ cd conda_testing/
 $ grep -r require bwa_and_samtools.xml
+<<<<<<< HEAD
 bwa_and_samtools.xml:    <requirements>
 bwa_and_samtools.xml:        <requirement type="package" version="0.7.15">bwa</requirement>
 bwa_and_samtools.xml:        <requirement type="package" version="1.3.1">samtools</requirement>
 bwa_and_samtools.xml:    </requirements>
+=======
+bwa_and_samtools.xml:    &lt;requirements&gt;
+bwa_and_samtools.xml:        &lt;requirement type="package" version="0.7.15"&gt;bwa&lt;/requirement&gt;
+bwa_and_samtools.xml:        &lt;requirement type="package" version="1.3.1"&gt;samtools&lt;/requirement&gt;
+bwa_and_samtools.xml:    &lt;/requirements&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```]
 
 ---
@@ -366,7 +494,11 @@ we said the resulting container will be
 This can be broken into these parts:
 
 ```
+<<<<<<< HEAD
 quay.io/ <namespace> /mulled-v2-<package_hash>:<version_hash>-<build>
+=======
+quay.io/ &lt;namespace&gt; /mulled-v2-&lt;package_hash&gt;:&lt;version_hash&gt;-&lt;build&gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ```
 
 ???
@@ -417,7 +549,11 @@ DEBU Created container [5e4b5f83c455 step-730a02d79e], starting it
 DEBU Container [5e4b5f83c455 step-730a02d79e] started, waiting for completion
 DEBU Container [5e4b5f83c455 step-730a02d79e] completed with exit code [0] as expected
 DEBU Container [5e4b5f83c455 step-730a02d79e] removed
+<<<<<<< HEAD
 STEP Run image [continuumio/miniconda:latest] with command [[/bin/sh -c conda install --quiet --yes conda=4.3 && conda install  -c iuc -c bioconda -c r -c defaults -c conda-forge  samtools=1.3.1 bwa=0.7.15 -p /usr/local --copy --yes --quiet]]
+=======
+STEP Run image [continuumio/miniconda:latest] with command [[/bin/sh -c conda install --quiet --yes conda=4.3 &amp;&amp; conda install  -c iuc -c bioconda -c r -c defaults -c conda-forge  samtools=1.3.1 bwa=0.7.15 -p /usr/local --copy --yes --quiet]]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 DEBU Creating container [step-e95bf001c8]
 DEBU Created container [72b9ca0e56f8 step-e95bf001c8], starting it
 DEBU Container [72b9ca0e56f8 step-e95bf001c8] started, waiting for completion
@@ -428,7 +564,11 @@ SOUT Package plan for installation in environment /opt/conda:
 SOUT
 SOUT The following packages will be UPDATED:
 SOUT
+<<<<<<< HEAD
 SOUT conda: 4.3.11-py27_0 --> 4.3.22-py27_0
+=======
+SOUT conda: 4.3.11-py27_0 --&gt; 4.3.22-py27_0
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 SOUT
 SOUT Fetching package metadata .................
 SOUT Solving package specifications: .
@@ -466,7 +606,11 @@ $ planemo test --galaxy_branch dev --biocontainers bwa_and_samtools.xml
 [galaxy.tools.deps] Using dependency samtools version 1.3.1 of type conda
 [galaxy.tools.deps.containers] Checking with container resolver [ExplicitContainerResolver[]] found description [None]
 [galaxy.tools.deps.containers] Checking with container resolver [CachedMulledContainerResolver[namespace=None]] found description [ContainerDescription[identifier=quay.io/ biocontainers/mulled-v1-01afc412d1f216348d85970ce5f88c984aa443f3:latest,type=docker]]
+<<<<<<< HEAD
 [galaxy.jobs.command_factory] Built script [/tmp/tmpQs0gyp/job_working_directory/000/1/tool_script.sh] for tool command [bwa > /tmp/tmpQs0gyp/files/000/dataset_1.dat 2>&1 ; samtools > /tmp/tmpQs0gyp/files/000/dataset_2.dat 2>&1]
+=======
+[galaxy.jobs.command_factory] Built script [/tmp/tmpQs0gyp/job_working_directory/000/1/tool_script.sh] for tool command [bwa &gt; /tmp/tmpQs0gyp/files/000/dataset_1.dat 2&gt;&amp;1 ; samtools &gt; /tmp/tmpQs0gyp/files/000/dataset_2.dat 2&gt;&amp;1]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 [galaxy.tools.deps] Using dependency samtools version None of type conda
 [galaxy.tools.deps] Using dependency samtools version None of type conda
 ok
@@ -490,13 +634,21 @@ bwa_and_samtools[0]: passed
 
 ---
 
+<<<<<<< HEAD
 ### <i class="fa fa-pencil" aria-hidden="true"></i> Hands-on
+=======
+### &lt;i class="fa fa-pencil" aria-hidden="true"&gt;&lt;/i&gt; Hands-on
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 ![](../../images/exercise.png)
 
 ---
 
+<<<<<<< HEAD
 ### <i class="fa fa-pencil" aria-hidden="true"></i> Hands-on
+=======
+### &lt;i class="fa fa-pencil" aria-hidden="true"&gt;&lt;/i&gt; Hands-on
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 #### The Goal
 
@@ -506,7 +658,11 @@ bwa_and_samtools[0]: passed
 
 class: left
 
+<<<<<<< HEAD
 ### <i class="fa fa-pencil" aria-hidden="true"></i> Hands-on
+=======
+### &lt;i class="fa fa-pencil" aria-hidden="true"&gt;&lt;/i&gt; Hands-on
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 #### Steps
 
@@ -541,3 +697,45 @@ daily for package combinations to publish.
 ### Publishing **Your** Multi-Package Containers
 
 ![](../../images/planemo-monitor.png)
+<<<<<<< HEAD
+=======
+
+
+---
+
+### <img class="emoji" title=":grey_exclamation:" alt=":grey_exclamation:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2755.png" height="20" width="20" align="absmiddle"> Key points
+
+
+- It is becoming easier, more advantageous, and more common for Galaxy admins to run all tools within their own container.
+
+- You can explicitly define a container for your tool - but it is easier and more reproducible to let Galaxy find or build one using your tool's best practice requirements.
+
+- The Galaxy community will infrastructure to automatically build and/or publish containers for your tool as long as it defines best practice Conda dependencies.
+
+- Planemo makes it easy to test your tool inside of containers.
+
+
+
+---
+
+## Thank you!
+
+This material is the result of a collaborative work. Thanks the [Galaxy Training Network](https://wiki.galaxyproject.org/Teach/GTN) and all the contributors  (John Chilton, Björn Grüning) !
+
+
+<img src="/training-material/assets/images/GTN.png" alt="Galaxy Training Network" style="height: 100px;">
+
+
+
+.footnote[Found a typo? Something is wrong in this tutorial? <br>Edit it on [GitHub](https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/containers/slides.html)]
+
+    </textarea>
+    <script src="/training-material/assets/js/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({navigation: {scroll: false,}});
+      var hljs = remark.highlighter.engine;
+    </script>
+  </body>
+</html>
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906

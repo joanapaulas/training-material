@@ -1,9 +1,73 @@
+<<<<<<< HEAD
 ---
 layout: tutorial_slides
 topic_name: admin
 tutorial_name: deployment-platforms-options
 logo: "GTN"
 ---
+=======
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Deployment and Platform options</title>
+    <link rel="stylesheet" href="/training-material/assets/css/slides.css">
+    <link rel="stylesheet" href="/training-material/assets/css/font-awesome.css" id="theme">
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+<div class="my-footer"><span>
+
+<img src="/training-material/assets/images/GTN-60px.png" alt="Galaxy Training Network" style="height: 40px;">
+
+</span></div>
+
+---
+
+# Deployment and Platform options
+
+
+
+---
+
+
+
+
+
+### <img class="emoji" title=":grey_question:" alt=":grey_question:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2754.png" height="20" width="20" align="absmiddle"> Questions
+
+
+- What options to deploy Galaxy do I have?
+
+- Which platforms are supported by Galaxy?
+
+- What requirements does Galaxy have?
+
+
+---
+
+### <img class="emoji" title=":dart:" alt=":dart:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3af.png" height="20" width="20" align="absmiddle"> Objectives
+
+
+- Learn about different options about Galaxy deployment.
+
+- Make an educated decision about your preferred deployment model.
+
+
+---
+
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 layout: true
 name: left-aligned
 class: left, middle
@@ -75,7 +139,11 @@ __Standalone Local Server__
 
 Required:
   - Galaxy is written in Python and depends on **Python 2.7**
+<<<<<<< HEAD
   - All major distros in wide circulation have 2.7, *except* RHEL<sup>[1]</sup> 6
+=======
+  - All major distros in wide circulation have 2.7, *except* RHEL&lt;sup&gt;[1]&lt;/sup&gt; 6
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
     - See: Software Collections for [RHEL](https://access.redhat.com/solutions/472793), [CentOS](https://wiki.centos.org/AdditionalResources/Repositories/SCL), [Scientific Linux](http://linux.web.cern.ch/linux/scl/)
 
 Optional (but not really):
@@ -83,7 +151,11 @@ Optional (but not really):
   - [uWSGI](https://galaxyproject.github.io/dagobah-training/2018-oslo/10-uwsgi/uwsgi.html) (will come with Galaxy from 18.01 onwards)
   - [Reverse proxy server](https://galaxyproject.github.io/dagobah-training/2018-oslo/03-production-basics/webservers.html) (nginx, Apache)
 
+<<<<<<< HEAD
 .footnote[<sup>[1]</sup> Point of order: Unless stated otherwise, "RHEL" refers to RHEL and derivatives (CentOS, Scientific Linux, etc.)]
+=======
+.footnote[&lt;sup&gt;[1]&lt;/sup&gt; Point of order: Unless stated otherwise, "RHEL" refers to RHEL and derivatives (CentOS, Scientific Linux, etc.)]
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 ---
 # What can run Galaxy
@@ -148,7 +220,11 @@ template: left-aligned
 
 An "average" NGS analysis (by Anton): **66 GB**
 
+<<<<<<< HEAD
 10 users, 10 histories: **> 6 TB**
+=======
+10 users, 10 histories: **&gt; 6 TB**
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 Solutions:
 
@@ -274,3 +350,41 @@ For this training:
 # Let's get our hands dirty!
 
 Any questions first?
+<<<<<<< HEAD
+=======
+
+
+---
+
+### <img class="emoji" title=":grey_exclamation:" alt=":grey_exclamation:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2755.png" height="20" width="20" align="absmiddle"> Key points
+
+
+- Galaxy is scalable from personal computers to huge HPC and cloud-instances.
+
+- Amount of expected users and storage capabilities does have a big impact on the deployment.
+
+
+
+---
+
+## Thank you!
+
+This material is the result of a collaborative work. Thanks the [Galaxy Training Network](https://wiki.galaxyproject.org/Teach/GTN) and all the contributors  (Nate Coraor, Björn Grüning) !
+
+
+<img src="/training-material/assets/images/GTN.png" alt="Galaxy Training Network" style="height: 100px;">
+
+
+
+.footnote[Found a typo? Something is wrong in this tutorial? <br>Edit it on [GitHub](https://github.com/galaxyproject/training-material/tree/master/topics/admin/tutorials/deployment-platforms-options/slides.html)]
+
+    </textarea>
+    <script src="/training-material/assets/js/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({navigation: {scroll: false,}});
+      var hljs = remark.highlighter.engine;
+    </script>
+  </body>
+</html>
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906

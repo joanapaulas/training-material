@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 layout: tutorial_slides
 topic_name: dev
@@ -6,6 +7,69 @@ logo: "GTN"
 ---
 
 
+=======
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Galaxy Webhooks</title>
+    <link rel="stylesheet" href="/training-material/assets/css/slides.css">
+    <link rel="stylesheet" href="/training-material/assets/css/font-awesome.css" id="theme">
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+<div class="my-footer"><span>
+
+<img src="/training-material/assets/images/GTN-60px.png" alt="Galaxy Training Network" style="height: 40px;">
+
+</span></div>
+
+---
+
+# Galaxy Webhooks
+
+
+
+---
+
+
+
+
+
+### <img class="emoji" title=":grey_question:" alt=":grey_question:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2754.png" height="20" width="20" align="absmiddle"> Questions
+
+
+- What are Galaxy Webhooks?
+
+- How to create them?
+
+
+---
+
+### <img class="emoji" title=":dart:" alt=":dart:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3af.png" height="20" width="20" align="absmiddle"> Objectives
+
+
+- Discover what Galaxy Webhooks are
+
+- Be able to create Webhooks
+
+- Be able to add a Galaxy Webhook in a Galaxy instance
+
+
+---
+
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 ### What are Galaxy Webhooks?
 
 A system which can be used to attach new functionalities to predefined entry points in the Galaxy interface.
@@ -46,10 +110,17 @@ Adds an entry to the history menu.
 
 ### What is a webhook made of?
 
+<<<<<<< HEAD
 - a config file in YAML format: `config/<NAME>.yml`
 - optional: A Python helper file with access to the Galaxy `trans` object
   - `helper/__init__.py`
   - provides an API call at `/api/webhooks/<WEBHOOK_NAME>/get_data`
+=======
+- a config file in YAML format: `config/&lt;NAME&gt;.yml`
+- optional: A Python helper file with access to the Galaxy `trans` object
+  - `helper/__init__.py`
+  - provides an API call at `/api/webhooks/&lt;WEBHOOK_NAME&gt;/get_data`
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 - optional: Additional `JS` and `CSS` code
   - `static/script.js`
   - `static/styles.css`
@@ -67,7 +138,11 @@ activate: true
 icon: fa-user
 tooltip: Show Username
 
+<<<<<<< HEAD
 function: >
+=======
+function: &gt;
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
   $.getJSON("/api/webhooks/trans_object/get_data", function(data) {
     alert('Username: ' + data.username);
   });
@@ -120,7 +195,11 @@ The return value can be read with a call to `/api/webhooks/WEBHOOK_NAME/get_data
   - add additional ones ...
 - Improve the documentation or training material
   - [Documentation](https://docs.galaxyproject.org/en/latest/admin/special_topics/webhooks.html)
+<<<<<<< HEAD
   - [Galaxy Training Network]({{site.url}}]{{site.baseurl}})
+=======
+  - [Galaxy Training Network](https://galaxyproject.github.io/]/training-material)
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
 
 ---
 
@@ -138,6 +217,49 @@ The return value can be read with a call to `/api/webhooks/WEBHOOK_NAME/get_data
 
 ---
 
+<<<<<<< HEAD
 ### <i class="fa fa-pencil" aria-hidden="true"></i> Hands-on
 
 ![](../../images/exercise.png)
+=======
+### &lt;i class="fa fa-pencil" aria-hidden="true"&gt;&lt;/i&gt; Hands-on
+
+![](../../images/exercise.png)
+
+
+---
+
+### <img class="emoji" title=":grey_exclamation:" alt=":grey_exclamation:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2755.png" height="20" width="20" align="absmiddle"> Key points
+
+
+- A Galaxy Webhook provides an easy way to customize the Galaxy UI with plugins
+
+- Right now there are 4 entry points: tool, workflow, masthead, history-menu
+
+- With a minimal amount of code you can extend Galaxy's user-interace.
+
+
+
+---
+
+## Thank you!
+
+This material is the result of a collaborative work. Thanks the [Galaxy Training Network](https://wiki.galaxyproject.org/Teach/GTN) and all the contributors  (Clemens Blank, Martin Čech, Björn Grüning) !
+
+
+<img src="/training-material/assets/images/GTN.png" alt="Galaxy Training Network" style="height: 100px;">
+
+
+
+.footnote[Found a typo? Something is wrong in this tutorial? <br>Edit it on [GitHub](https://github.com/galaxyproject/training-material/tree/master/topics/dev/tutorials/webhooks/slides.html)]
+
+    </textarea>
+    <script src="/training-material/assets/js/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({navigation: {scroll: false,}});
+      var hljs = remark.highlighter.engine;
+    </script>
+  </body>
+</html>
+>>>>>>> f1b01b7ef32ec4f29a7f797f014dae1d28ea2906
