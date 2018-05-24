@@ -12,7 +12,7 @@ tutorial_name: goenrichment
 <br>
 <br>
 What is the Gene Ontology?<br>
-The [Gene Ontology](http://www.geneontology.org "") (GO) provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
+The [Gene Ontology](http://www.geneontology.org)provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
 
 
 ![](images/GOexample.png)
@@ -57,7 +57,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > 1. **Create a new history** 
 > 2. **Upload to the Galaxy** the following files:
->    - go.obo  (FALTA O LINK)
+>    - go.obo  (LINK)
 >    - drosophila_gene_association.fb (LINK)
 >    - Trapnell_study.txt (LINK)
 >    - Trapnell_population.tab (LINK)
