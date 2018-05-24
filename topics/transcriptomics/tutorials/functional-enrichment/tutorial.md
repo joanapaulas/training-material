@@ -187,7 +187,7 @@ Let’s use again the results of the mouse, but first we need to use GOSlimmer t
 > 
 > 
 > ### {% icon hands_on %} Hands-on:
-> 1. **Upload to the Galaxy** the [goslim_generic.obo] (http://www.geneontology.org/ontology/subsets/goslim_generic.obo) file.
+> 1. **Upload to the Galaxy** the [goslim_generic.obo](http://www.geneontology.org/ontology/subsets/goslim_generic.obo) file.
 > 2. **Rename** the goslim_generic.obo file to **GO Slim**.
 > 3. **GOSlimmer** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOSlimmer`.
 > 
