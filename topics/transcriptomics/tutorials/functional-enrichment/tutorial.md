@@ -13,8 +13,7 @@ tutorial_name: goenrichment
 <br>
 What is the Gene Ontology?<br>
 The [Gene Ontology](http://www.geneontology.org/) provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
-
-
+> 
 ![](images/GOexample.png)
 **Figure 1** QuickGO - http://www.ebi.ac.uk/QuickGO
 <br>
@@ -34,9 +33,10 @@ Genes are associated to GO terms via annotations, where each gene can be associa
 >
 {: .agenda}
 
-> 
-> 
-> 
+<br>
+<br>
+<br> 
+<br>
 # Functional Enrichment Analysis
 
 To perform a functional enrichment analysis, we need to have:
