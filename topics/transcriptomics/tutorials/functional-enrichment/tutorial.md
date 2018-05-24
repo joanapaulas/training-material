@@ -12,12 +12,13 @@ When we have a large list of genes of interest (for example, a list of different
 > 
 > 
 > 
-What is the Gene Ontology?
 > 
+What is the Gene Ontology?
 The [Gene Ontology](http://www.geneontology.org "Gene Ontology Homepage") (GO) provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
 
 
-![QuickGO - http://www.ebi.ac.uk/QuickGO](images/GOexample.png#center)
+![](images/GOexample.png)
+**Figure 1** QuickGO - http://www.ebi.ac.uk/QuickGO
 > 
 What is GO annotation?
 > 
@@ -73,7 +74,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > ...After you upload the files, and if you press the eye icon you should look someting like this:
 > ![](images/trapnellFile.png)
-> **Figure 1** Trapnell file
+> **Figure 2** Trapnell file
 > 
 > ...Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample. 
 > 
