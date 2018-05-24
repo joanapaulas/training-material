@@ -17,7 +17,7 @@ What is the Gene Ontology?
 The [Gene Ontology](http://www.geneontology.org "Gene Ontology Homepage") (GO) provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
 
 
-![QuickGO - http://www.ebi.ac.uk/QuickGO](../images/GOexample.png)
+![QuickGO - http://www.ebi.ac.uk/QuickGO](images/GOexample.png)
 > 
 What is GO annotation?
 > 
@@ -65,7 +65,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 >    > ### <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
 >    > * **Click** on the upload button in the upper left of the interface.
->    > ![](../../images/galaxy_upload.png)
+>    > ![](images/galaxy_upload.png)
 >    > * Press **Choose local file** and search for your file.
 >    > * Press **Start** and wait for the upload to finish. Galaxy will automatically unpack the file.
 >    {: .tip}
