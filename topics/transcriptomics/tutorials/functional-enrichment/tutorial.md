@@ -13,7 +13,7 @@ What is the Gene Ontology?
 The [Gene Ontology](http://www.geneontology.org "Gene Ontology Homepage") (GO) provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
 
 
-![QuickGO - http://www.ebi.ac.uk/QuickGO](/home/jpaulas/Pictures/Gene_ontology_example.png)
+![QuickGO - http://www.ebi.ac.uk/QuickGO](../../images/GOexample.png)
 > 
 What is GO annotation?
 > 
@@ -61,14 +61,14 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 >    > ### <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
 >    > * **Click** on the upload button in the upper left of the interface.
->    > ![](/home/jpaulas/Pictures/galaxy_upload.png)
+>    > ![](../../images/galaxy_upload.png)
 >    > * Press **Choose local file** and search for your file.
 >    > * Press **Start** and wait for the upload to finish. Galaxy will automatically unpack the file.
 >    {: .tip}
 > 3. **Rename** the *go.obo* file to <span style="color:red">some **GO** text</span> and *drosophila_gene_association.fb* file to <span style="color:red">some **GO annotations Drosophila melanogaster** text</span>.
 > 
 > ...After you upload the files, and if you press the eye icon you should look someting like this:
-> ![](/home/jpaulas/Pictures/trapnell_file.png)
+> ![](../../images/trapnellFile.png)
 > **Figure 1** Trapnell file
 > 
 > ...Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample. 
@@ -79,7 +79,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > 4. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run the GOEnrichment tool with the four files.
 > ..* Use the default options.
-> 					[image - galaxy]
+> ![](../../images/galaxyTrapnell.png)
 > 
 >    > ### <i class="fa fa-question-circle" aria-hidden="true"></i> Question
 >    >
@@ -116,7 +116,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .question}
 > If you press the eye icon of the three graphs you should see something like this:
 > ...*Cellular Component*
-> 				[graph]
+> ![](../../images/tccTrapnell.png)
 > 
 >    > ### <i class="fa fa-commenting-o" aria-hidden="true"></i> Comments
 >    > The ~300 genes should be random. Nonetheless we still have significant terms… [Rever este comentário com o Daniel Faria]
@@ -124,7 +124,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 {: .hands_on}
 > 
 > 
-> 
+> joanapaulas/
 # Simplification of graphs
 > 
 Graphs views are essential, but sometimes the graph view can become overwhelming due to the size of the results. To exemplify this issue, we will next perform functional enrichment analysis using a more realistic dataset from a study using the mouse model organism. The original dataset can be found here: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE30352. In this study (https://www.nature.com/articles/nature10532), the authors compared the gene expression of several tissues. Here, we will use results from the comparison between heart and brain.
@@ -135,10 +135,10 @@ Graphs views are essential, but sometimes the graph view can become overwhelming
 > 2. **Rename** the mouse_brain_vs._heart.txt file to **Mouse population**, Mus_musculus_annotations_biomart_e92.tab file to **GO annotations _Mus musculus_** and mouse_brain_vs_heart.difgenes.txt file to **Mouse diff**. 
 > 3. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run GOEnrichment for the new study sample.
 > ..* Select **'NO'** in the Summarize Output option.
-> 				[image]
+> ![](../../images/galaxyMouseDiff.png)
 > 4. This will generate 6 files, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** to MF tabDiff, BP tabDiff, CC tabDiff, MF grapDiff, BP grapDiff and CC grapDiff, respectively.
-> 5. Analyze the table and graph from Biological Process.
-> 			[graph]
+> 5. Analyze the table and graph from *Biological Process*.
+> ![](../../images/bpMouseDiff.png)
 > 
 >    > ### <i class="fa fa-commenting-o" aria-hidden="true"></i> Comments
 >    > As you can see the three graphs are very complex and difficult to analyze.
@@ -154,9 +154,9 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 > ### <i class⁼"fa fa-pencil" aria-hidden="true"></i> Hands-on:
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Re-run the GOEnrichment with the same files.
 > ..* Use the default options (notice that by default the Summarize Option is on).
->			[image]
-> 2. Analyze again the table and graph from Biological Process.
-> 			[graph]
+> ![](../../images/galaxyMouseDiffSum.png)
+> 2. Analyze again the table and graph from *Biological Process*.
+> ![](../../images/bpMouseDiffSum.png)
 > 
 >    > ### <i class="fa fa-question-circle" aria-hidden="true"></i> Question
 >    >
@@ -167,7 +167,7 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 >    >Yes, there are differences. As you can see, the activation of the 'summarize' option reduces the size of the graph because, this parameter aims to remove the related terms from the list of enriched GO terms. Resulting in a more summarized graph,  that is, it presents the functions that have a higher frequency in the population. [Com o Daniel Faria, explicar um pouco mais]
 >    > </details>
 >    {: .question}
-{: .hands_on}joanapaulas/
+{: .hands_on}
 > 
 > 
 Another alternative tool to reduce the results is to simplify the GO Ontology being used, using GO slims. This gives a much simpler results, but can also gives a substantial loss in specificity, comparing with the Summarize Output. Basically, the GO slims represent cut-down versions of the GO ontologies containing a subset of the terms associated to GO. This gives an ontology without the detail of the specific fine grained terms, and this is the reason for the simpler results.
@@ -183,7 +183,7 @@ Let’s use again the results of the mouse, but first we need to use GOSlimmer t
 >    > ### <i class="fa fa-commenting-o" aria-hidden="true"></i> Comments
 >    > You need to use the GO and GO annotations Mus musculus that you previously upload.
 >    {: .comment} 
-> 				[image - galaxy]
+> ![](../../images/galaxySlimer.png)
 > This will generate one file called Slim Annotations.
 {: .hands_on}
 > 
@@ -194,17 +194,18 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run the GOEnrichment.
 > ..* Use the **GOSlim**, **Slim Annotations** and **Mouse population** files.
 > ..* Select **'NO'** in the Summarize Output option.
-> 				[image - galaxy]
+> ![](../../images/galaxyMouseSlim.png)
 > 
 >    > ### <i class="fa fa-question-circle" aria-hidden="true"></i> Question
 >    >
 >    > Question?
->    > 1. What is the difference when you apply the GO Slim in data (instead of GO)?
+>    > 1. What is the difference when you use the GO Slim in data (instead of GO)?
 >    > 2. What is the difference when you apply the GO Slim in data (instead of the Summarize option)?
 >    > <details>
 >    > <summary>Click to view answers</summary>
 >    > 1. In addition to size reduction, the GO Slim shows you an representation of biological information by using high level terms that provide a broad overview of the biology.
->    > 2.
+>    > 2. The difference between both is the ontology used. When we apply the summarize option, the GOEnrichment tool will return a summarized output (as we have seen previously), which uses the original / complete ontology. When we opted for GO Slim, the original annotation was summarized and because of this it will generate an even more summarized output, and consequently loses a lot of specification unlike the summarize option.
+
 >    > </details>
 >    {: .question}
 {: .hands_on}
@@ -241,7 +242,9 @@ And now we go use two study samples, one with overexpressed genes and the other 
 > 2. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run the GOEnrichment for the both files (mouseOverexpressed.txt and the mouseUnderexpressed.txt).
 > ..* Use the **GO**, the **GO annotations _Mus musculus_** and the **Mouse population** files.
 > ..* Use the default options.
-> 				[images - galaxy]
+> ![](../../images/galaxyMouseOver.png)
+> ![](../../images/galaxyMouseUnder.png)
+> 
 > 3. This will generate 12 files, 6 for each sample, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** according the sample (under- and overexpressed): MF tableUnder, BP tableUnder, CC tableUnder, MF graphUnder, BP graphUnder, CC graphUnder, MF tableOver, BP tableOver, CC tableOver , MF graphOver, BP graphOver and CC graphOver.
 > 
 >    > Question?
