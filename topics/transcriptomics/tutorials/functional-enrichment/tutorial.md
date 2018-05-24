@@ -33,9 +33,9 @@ Genes are associated to GO terms via annotations, where each gene can be associa
 >
 {: .agenda}
 > 
-<br>
-<br>
-<br> 
+> 
+> 
+> 
 > 
 # Functional Enrichment Analysis
 
