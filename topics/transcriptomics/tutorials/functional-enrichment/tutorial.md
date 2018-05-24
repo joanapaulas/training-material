@@ -32,11 +32,11 @@ Genes are associated to GO terms via annotations, where each gene can be associa
 > {:toc}
 >
 {: .agenda}
-
+> 
 <br>
 <br>
 <br> 
-<br>
+> 
 # Functional Enrichment Analysis
 
 To perform a functional enrichment analysis, we need to have:
