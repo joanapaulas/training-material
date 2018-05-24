@@ -123,7 +123,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > If you press the eye icon of the three graphs you should see something like this:
 > ...*Cellular Component*
-> ![](images/tccTrapnell.png)
+> ![](images/ccTrapnell.png)
 > 
 >    > ### {% icon comment %} Comments
 >    > The ~300 genes should be random. Nonetheless we still have significant terms… [Rever este comentário com o Daniel Faria]
@@ -141,7 +141,7 @@ Graphs views are essential, but sometimes the graph view can become overwhelming
 > 1. **Upload to the Galaxy** the mouse_brain_vs._heart.txt, Mus_musculus_annotations_biomart_e92.tab and mouse_brain_vs_heart.difgenes.txt files.
 > 2. **Rename** the mouse_brain_vs._heart.txt file to **Mouse population**, Mus_musculus_annotations_biomart_e92.tab file to **GO annotations _Mus musculus_** and mouse_brain_vs_heart.difgenes.txt file to **Mouse diff**. 
 > 3. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run `GOEnrichment` for the new study sample.
-> ..* Select **'NO'** in the Summarize Output option.
+>    - Select **'NO'** in the Summarize Output option.
 > ![](../../images/galaxyMouseDiff.png)
 > 4. This will generate 6 files, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** to MF tabDiff, BP tabDiff, CC tabDiff, MF grapDiff, BP grapDiff and CC grapDiff, respectively.
 > 5. Analyze the table and graph from *Biological Process*.
@@ -160,7 +160,7 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 > 
 > ### {% icon hands_on %} Hands-on:
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Re-run `GOEnrichment` with the same files.
-> ..* Use the default options (notice that by default the Summarize Option is on).
+>    - Use the default options (notice that by default the Summarize Option is on).
 > ![](images/galaxyMouseDiffSum.png)
 > 2. Analyze again the table and graph from *Biological Process*.
 > ![](images/bpMouseDiffSum.png)
@@ -200,8 +200,8 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 > 
 >  ### {% icon hands_on %} Hands-on:
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run `GOEnrichment`.
-> ..* Use the **GOSlim**, **Slim Annotations** and **Mouse population** files.
-> ..* Select **'NO'** in the Summarize Output option.
+>    - Use the **GOSlim**, **Slim Annotations** and **Mouse population** files.
+>    - Select **'NO'** in the Summarize Output option.
 > ![](images/galaxyMouseSlim.png)
 > 
 >    > ## {% icon question %} Question
@@ -210,7 +210,7 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 >    > 1. What is the difference when you use the GO Slim in data (instead of GO)?
 >    > 2. What is the difference when you apply the GO Slim in data (instead of the Summarize option)?
 >    >
->    > <details>
+>    > <details>se the GOSlim, Slim Annotations and Mouse popul
 >    > <summary>Click to view answers</summary>
 >    > 1. In addition to size reduction, the GO Slim shows you an representation of biological information by using high level terms that provide a broad overview of the biology.
 >    > 2. The difference between both is the ontology used. When we apply the summarize option, the GOEnrichment tool will return a summarized output (as we have seen previously), which uses the original / complete ontology. When we opted for GO Slim, the original annotation was summarized and because of this it will generate an even more summarized output, and consequently loses a lot of specification unlike the summarize option.
@@ -250,8 +250,8 @@ And now we go use two study samples, one with overexpressed genes and the other 
 >    {: .comment} 
 > 
 > 2. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run `GOEnrichment` for the both files (mouseOverexpressed.txt and the mouseUnderexpressed.txt).
-> ..* Use the **GO**, the **GO annotations _Mus musculus_** and the **Mouse population** files.
-> ..* Use the default options.
+>    - Use the **GO**, the **GO annotations _Mus musculus_** and the **Mouse population** files.
+>    - Use the default options.
 > ![](images/galaxyMouseOver.png)
 > ![](images/galaxyMouseUnder.png)
 > 
