@@ -57,10 +57,10 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > 1. **Create a new history** 
 > 2. **Upload to the Galaxy** the following files:
-> - go.obo  (FALTA O LINK)
-> - drosophila_gene_association.fb (LINK)
-> - Trapnell_study.txt (LINK)
-> - Trapnell_population.tab (LINK)
+>   > - go.obo  (FALTA O LINK)
+>   > - drosophila_gene_association.fb (LINK)
+>   > - Trapnell_study.txt (LINK)
+>   > - Trapnell_population.tab (LINK)
 > 
 >    > ### <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
 >    > * **Click** on the upload button in the upper left of the interface.
