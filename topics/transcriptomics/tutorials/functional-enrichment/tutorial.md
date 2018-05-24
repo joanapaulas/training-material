@@ -123,8 +123,6 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > If you press the eye icon of the three graphs you should see something like this:
 > 
->   > *Cellular Component*
-> 
 > ![](images/ccTrapnell.png)
 > 
 >    > ### {% icon comment %} Comments
@@ -142,11 +140,12 @@ Graphs views are essential, but sometimes the graph view can become overwhelming
 > For the first exercise we will use as a study sample the differential genes (padjusted<0.05).
 > 1. **Upload to the Galaxy** the mouse_brain_vs._heart.txt, Mus_musculus_annotations_biomart_e92.tab and mouse_brain_vs_heart.difgenes.txt files.
 > 2. **Rename** the mouse_brain_vs._heart.txt file to **Mouse population**, Mus_musculus_annotations_biomart_e92.tab file to **GO annotations _Mus musculus_** and mouse_brain_vs_heart.difgenes.txt file to **Mouse diff**. 
-> 3. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run `GOEnrichment` for the new study sample.
+> 3. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment` for the new study sample.
 >    - Select **'NO'** in the Summarize Output option.
 > ![](../../images/galaxyMouseDiff.png)
 > 4. This will generate 6 files, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** to MF tabDiff, BP tabDiff, CC tabDiff, MF grapDiff, BP grapDiff and CC grapDiff, respectively.
 > 5. Analyze the table and graph from *Biological Process*.
+> 
 > ![](images/bpMouseDiff.png)
 > 
 >    > ### {% icon comment %} Comments
@@ -161,10 +160,11 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 > 
 > 
 > ### {% icon hands_on %} Hands-on:
-> 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Re-run `GOEnrichment` with the same files.
+> 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Re-run `GOEnrichment` with the same files.
 >    - Use the default options (notice that by default the Summarize Option is on).
 > ![](images/galaxyMouseDiffSum.png)
 > 2. Analyze again the table and graph from *Biological Process*.
+> 
 > ![](images/bpMouseDiffSum.png)
 > 
 >    > ## {% icon question %} Question
@@ -176,7 +176,7 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 >    > <summary>Click to view answers</summary>
 >    >Yes, there are differences. As you can see, the activation of the 'summarize' option reduces the size of the graph because, this parameter aims to remove the related terms from the list of enriched GO terms. Resulting in a more summarized graph,  that is, it presents the functions that have a higher frequency in the population. [Com o Daniel Faria, explicar um pouco mais]
 >    > </details>
->    {: .question}http://www.geneontology.org/
+>    {: .question}
 {: .hands_on}
 > 
 > 
@@ -187,12 +187,14 @@ Let’s use again the results of the mouse, but first we need to use GOSlimmer t
 > 
 > 
 > ### {% icon hands_on %} Hands-on:
-> 1. **GOSlimmer** <i class="fa fa-wrench" aria-hidden="true"></i>:Upload the goslim_generic.obo [http://www.geneontology.org/ontology/subsets/goslim_generic.obo] file.
+> 1. **Upload to the Galaxy** the [goslim_generic.obo] (http://www.geneontology.org/ontology/subsets/goslim_generic.obo) file.
 > 2. **Rename** the goslim_generic.obo file to **GO Slim**.
+> 3. **GOSlimmer** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOSlimmer`.
 > 
 >    > ### {% icon comment %} Comments
 >    > You need to use the GO and GO annotations Mus musculus that you previously upload.
->    {: .comment} 
+>    {: .comment}
+>  
 > ![](images/galaxySlimer.png)
 > This will generate one file called Slim Annotations.
 {: .hands_on}
@@ -201,7 +203,7 @@ Let’s use again the results of the mouse, but first we need to use GOSlimmer t
 Now we will go use the GOEnrichment tool with the new Slim Annotations file and the same study sample.
 > 
 >  ### {% icon hands_on %} Hands-on:
-> 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run `GOEnrichment`.
+> 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment`.
 >    - Use the **GOSlim**, **Slim Annotations** and **Mouse population** files.
 >    - Select **'NO'** in the Summarize Output option.
 > ![](images/galaxyMouseSlim.png)
@@ -251,7 +253,7 @@ And now we go use two study samples, one with overexpressed genes and the other 
 >    > To select the up- and downregulated genes, in addition to logFC values, its also necessary define the p-value. In this case was an p-value < 0,01.
 >    {: .comment} 
 > 
-> 2. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run `GOEnrichment` for the both files (mouseOverexpressed.txt and the mouseUnderexpressed.txt).
+> 2. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment` for the both files (mouseOverexpressed.txt and the mouseUnderexpressed.txt).
 >    - Use the **GO**, the **GO annotations _Mus musculus_** and the **Mouse population** files.
 >    - Use the default options.
 > ![](images/galaxyMouseOver.png)
