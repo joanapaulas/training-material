@@ -134,7 +134,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 # Simplification of graphs
 > 
-Graphs views are essential, but sometimes the graph view can become overwhelming due to the size of the results. To exemplify this issue, we will next perform functional enrichment analysis using a more realistic dataset from a study using the mouse model organism. The original dataset can be found here: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE30352. In this [study](https://www.nature.com/articles/nature10532), the authors compared the gene expression of several tissues. Here, we will use results from the comparison between heart and brain.
+Graphs views are essential, but sometimes the graph view can become overwhelming due to the size of the results. To exemplify this issue, we will next perform functional enrichment analysis using a more realistic dataset from a study using the mouse model organism. The original dataset can be found [here](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE30352). In this [study](https://www.nature.com/articles/nature10532), the authors compared the gene expression of several tissues. Here, we will use results from the comparison between heart and brain.
 > 
 > ### {% icon hands_on %} Hands-on:
 > For the first exercise we will use as a study sample the differential genes (padjusted<0.05).
@@ -271,8 +271,6 @@ And now we go use two study samples, one with overexpressed genes and the other 
 > 
 # Conclusion
 {:.no_toc}
-
-
-
-
 Functional enrichment is a good way to look for certain patterns in populations but their analysis can become a complicated process because of its complexity. And the way to contorne the complexity, is to apply the summarize in ours sets. And thus, we will get an reduction of the complexity and consequently, an major simplicity in the results.
+
+
