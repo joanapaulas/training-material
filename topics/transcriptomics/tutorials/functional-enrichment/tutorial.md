@@ -72,7 +72,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 3. **Rename** the *go.obo* file to <span style="color:red">some **GO** text</span> and *drosophila_gene_association.fb* file to <span style="color:red">some **GO annotations Drosophila melanogaster** text</span>.
 > 
 > ...After you upload the files, and if you press the eye icon you should look someting like this:
-> ![](../../images/trapnellFile.png)
+> ![](images/trapnellFile.png)
 > **Figure 1** Trapnell file
 > 
 > ...Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample. 
@@ -83,7 +83,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > 4. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run the GOEnrichment tool with the four files.
 > ..* Use the default options.
-> ![](../../images/galaxyTrapnell.png)
+> ![](images/galaxyTrapnell.png)
 > 
 >    > ### <i class="fa fa-question-circle" aria-hidden="true"></i> Question
 >    >
@@ -120,7 +120,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .question}
 > If you press the eye icon of the three graphs you should see something like this:
 > ...*Cellular Component*
-> ![](../../images/tccTrapnell.png)
+> ![](images/tccTrapnell.png)
 > 
 >    > ### <i class="fa fa-commenting-o" aria-hidden="true"></i> Comments
 >    > The ~300 genes should be random. Nonetheless we still have significant terms… [Rever este comentário com o Daniel Faria]
@@ -142,7 +142,7 @@ Graphs views are essential, but sometimes the graph view can become overwhelming
 > ![](../../images/galaxyMouseDiff.png)
 > 4. This will generate 6 files, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** to MF tabDiff, BP tabDiff, CC tabDiff, MF grapDiff, BP grapDiff and CC grapDiff, respectively.
 > 5. Analyze the table and graph from *Biological Process*.
-> ![](../../images/bpMouseDiff.png)
+> ![](images/bpMouseDiff.png)
 > 
 >    > ### <i class="fa fa-commenting-o" aria-hidden="true"></i> Comments
 >    > As you can see the three graphs are very complex and difficult to analyze.
@@ -158,9 +158,9 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 > ### <i class⁼"fa fa-pencil" aria-hidden="true"></i> Hands-on:
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Re-run the GOEnrichment with the same files.
 > ..* Use the default options (notice that by default the Summarize Option is on).
-> ![](../../images/galaxyMouseDiffSum.png)
+> ![](images/galaxyMouseDiffSum.png)
 > 2. Analyze again the table and graph from *Biological Process*.
-> ![](../../images/bpMouseDiffSum.png)
+> ![](images/bpMouseDiffSum.png)
 > 
 >    > ### <i class="fa fa-question-circle" aria-hidden="true"></i> Question
 >    >
@@ -187,7 +187,7 @@ Let’s use again the results of the mouse, but first we need to use GOSlimmer t
 >    > ### <i class="fa fa-commenting-o" aria-hidden="true"></i> Comments
 >    > You need to use the GO and GO annotations Mus musculus that you previously upload.
 >    {: .comment} 
-> ![](../../images/galaxySlimer.png)
+> ![](images/galaxySlimer.png)
 > This will generate one file called Slim Annotations.
 {: .hands_on}
 > 
@@ -198,7 +198,7 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run the GOEnrichment.
 > ..* Use the **GOSlim**, **Slim Annotations** and **Mouse population** files.
 > ..* Select **'NO'** in the Summarize Output option.
-> ![](../../images/galaxyMouseSlim.png)
+> ![](images/galaxyMouseSlim.png)
 > 
 >    > ### <i class="fa fa-question-circle" aria-hidden="true"></i> Question
 >    >
@@ -246,8 +246,8 @@ And now we go use two study samples, one with overexpressed genes and the other 
 > 2. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>:Run the GOEnrichment for the both files (mouseOverexpressed.txt and the mouseUnderexpressed.txt).
 > ..* Use the **GO**, the **GO annotations _Mus musculus_** and the **Mouse population** files.
 > ..* Use the default options.
-> ![](../../images/galaxyMouseOver.png)
-> ![](../../images/galaxyMouseUnder.png)
+> ![](images/galaxyMouseOver.png)
+> ![](images/galaxyMouseUnder.png)
 > 
 > 3. This will generate 12 files, 6 for each sample, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** according the sample (under- and overexpressed): MF tableUnder, BP tableUnder, CC tableUnder, MF graphUnder, BP graphUnder, CC graphUnder, MF tableOver, BP tableOver, CC tableOver , MF graphOver, BP graphOver and CC graphOver.
 > 
