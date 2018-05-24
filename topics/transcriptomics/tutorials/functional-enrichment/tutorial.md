@@ -8,7 +8,7 @@ tutorial_name: goenrichment
 {:.no_toc}
 
 
-When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we make sense of the biological meaning of that list? One way is to perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions when compared with a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.
+<p>When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we make sense of the biological meaning of that list? One way is to perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions when compared with a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.</p>
 <br>
 <br>
 What is the Gene Ontology?<br>
@@ -21,7 +21,7 @@ The [Gene Ontology](http://www.geneontology.org "Gene Ontology Homepage") (GO) p
 <br>
 What is GO annotation?<br>
 Genes are associated to GO terms via annotations, where each gene can be associated to multiple annotations. An important notion to take into account when using GO is that, according to the **true path rule**, a gene annotated to a term is also implicitly annotated to each ancestor of that term. GO annotations have evidence codes that encode the type of evidence supporting them (eg. experimentally verified (a small minority), or inferred from in-silico experiments).    
-> 
+<br>
 > ### Agenda
 >
 > In this tutorial, we will deal with:
@@ -40,10 +40,10 @@ Genes are associated to GO terms via annotations, where each gene can be associa
 # Functional Enrichment Analysis
 
 To perform a functional enrichment analysis, we need to have:
-..* A set of genes of interest (eg. differentially expressed genes): **study set**
-..* A list with all the genes to consider in the analysis: **population set**
-..* Gene annotations, associating genes to GO terms
-..* The GO ontology, with description of GO terms and their relationships
+- A set of genes of interest (eg. differentially expressed genes): **study set**
+- A list with all the genes to consider in the analysis: **population set**
+- Gene annotations, associating genes to GO terms
+- The GO ontology, with description of GO terms and their relationships
 > 
 For each GO term, we need to count how many (**k**) of the genes in the study set (**K**) are associated to the term, an how many (**n**) of the genes in the whole population (**N**) are associated to the same term. Then we test how likely would it be to obtain **k** genes associated to the term if **K** genes would be randomly sampled from the population. 
 
@@ -57,10 +57,10 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > 1. **Create a new history** 
 > 2. **Upload to the Galaxy** the following files:
-> ..* go.obo  (FALTA O LINK)
-> ..* drosophila_gene_association.fb (FALTA O LINK)
-> ..* Trapnell_study.txt (FALTA O LINK)
-> ..* Trapnell_population.tab (FALTA O LINK)
+> - go.obo  (FALTA O LINK)
+> - drosophila_gene_association.fb (LINK)
+> - Trapnell_study.txt (LINK)
+> - Trapnell_population.tab (LINK)
 > 
 >    > ### <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
 >    > * **Click** on the upload button in the upper left of the interface.
@@ -70,11 +70,11 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .tip}
 > 3. **Rename** the *go.obo* file to <span style="color:red">some **GO** text</span> and *drosophila_gene_association.fb* file to <span style="color:red">some **GO annotations Drosophila melanogaster** text</span>.
 > 
-> ...After you upload the files, and if you press the eye icon you should look someting like this:
+>    > After you upload the files, and if you press the eye icon you should look someting like this:
 > ![](images/trapnellFile.png)
 > **Figure 2** Trapnell file
 > 
-> ...Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample. 
+>    >Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample. 
 > 
 >    > ### {% icon comment %} Comments
 >    > The study sample represents the differentially expressed genes. These were chosen as having an adjusted p-value (last column) smaller than a given threshold. This value is arbitrary, so you may choose the level of significance you want. In this case, we select the genes with an adjusted p-value < 0,05. 
