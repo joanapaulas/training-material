@@ -141,7 +141,7 @@ Graphs views are essential, but sometimes the graph view can become overwhelming
 > 1. **Upload to the Galaxy** the mouse_brain_vs._heart.txt, Mus_musculus_annotations_biomart_e92.tab and mouse_brain_vs_heart.difgenes.txt files.
 > 2. **Rename** the mouse_brain_vs._heart.txt file to **Mouse population**, Mus_musculus_annotations_biomart_e92.tab file to **GO annotations _Mus musculus_** and mouse_brain_vs_heart.difgenes.txt file to **Mouse diff**. 
 > 3. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment` for the new study sample.
->    - Select **'NO'** in the Summarize Output option.
+>    - Select **'No'** in the Summarize Output option.
 > ![](../../images/galaxyMouseDiff.png)
 > 4. This will generate 6 files, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** to MF tabDiff, BP tabDiff, CC tabDiff, MF grapDiff, BP grapDiff and CC grapDiff, respectively.
 > 5. Analyze the table and graph from *Biological Process*.
@@ -188,7 +188,7 @@ Let’s use again the results of the mouse, but first we need to use GOSlimmer t
 > 
 > ### {% icon hands_on %} Hands-on:
 > 1. **Upload to the Galaxy** the [goslim_generic.obo](http://www.geneontology.org/ontology/subsets/goslim_generic.obo) file.
-> 2. **Rename** the goslim_generic.obo file to **GO Slim**.
+> 2. **Rename** the *goslim_generic.obo* file to **GO Slim**.
 > 3. **GOSlimmer** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOSlimmer`.
 > 
 >    > ### {% icon comment %} Comments
@@ -196,7 +196,7 @@ Let’s use again the results of the mouse, but first we need to use GOSlimmer t
 >    {: .comment}
 >  
 > ![](images/galaxySlimer.png)
-> This will generate one file called Slim Annotations.
+> This will generate one file called **Slim Annotations**.
 {: .hands_on}
 > 
 > 
@@ -205,7 +205,7 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 >  ### {% icon hands_on %} Hands-on:
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment`.
 >    - Use the **GOSlim**, **Slim Annotations** and **Mouse population** files.
->    - Select **'NO'** in the Summarize Output option.
+>    - Select **'No'** in the Summarize Output option.
 > ![](images/galaxyMouseSlim.png)
 > 
 >    > ## {% icon question %} Question
