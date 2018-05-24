@@ -122,7 +122,9 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .question}
 > 
 > If you press the eye icon of the three graphs you should see something like this:
-> ...*Cellular Component*
+> 
+>   > *Cellular Component*
+> 
 > ![](images/ccTrapnell.png)
 > 
 >    > ### {% icon comment %} Comments
