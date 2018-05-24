@@ -61,10 +61,12 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    - drosophila_gene_association.fb (LINK)
 >    - Trapnell_study.txt (LINK)
 >    - Trapnell_population.tab (LINK)
-<br> 
+ 
 >    > ### <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
 >    > * **Click** on the upload button in the upper left of the interface.
+>    >
 >    > ![](images/galaxy_upload.png) 
+>    >
 >    > * Press **Choose local file** and search for your file.
 >    > * Press **Start** and wait for the upload to finish. Galaxy will automatically unpack the file.
 >    {: .tip}
