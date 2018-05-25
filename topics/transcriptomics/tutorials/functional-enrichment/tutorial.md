@@ -129,9 +129,9 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > Question?
 >    > 1. How many significant terms do we get?
 >    > 
->    > <details>
+>    > <details> 
 >    > <summary>Click to view answers</summary>
->    >When we ask how many significant terms, we want to see GO terms that have an p-value < 0.05. According with the results, in Molecular Function we have 157 GO terms, Biological Process we have 955 GO terms and Component Cellular we have 121 GO terms.
+>    > 1. When we ask how many significant terms, we want to see GO terms that have a p-value < 0.05. According with the results, in Molecular Function we have 5 GO terms, Biological Process we have 43 GO terms and Component Cellular we have 10 GO terms.
 >    > </details>
 >    {: .question}
 > 
@@ -170,27 +170,24 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 > ![](images/galaxyTrapnellNewPop.png)
 > 4. **Rename** files to MF New Trapnell, BP New Trapnell, CC New Trapnell, MF New graphTrapnell, BP New graphTrapnell and CC New graphTrapnell, respectively.
 > 
-> Let's go see again the graph of *Molecular Function* (**MF New graphTrapnell**).
+> Let's go see again the graph **MF New graphTrapnell**.
 > > ![](images/mfTrapnellNew.png)
 > 
 >    >  ## {% icon question %} Question
 >    >
 >    > Question?
->    > 1. 
+>    > 1. How many significant terms do we get? 
+>    > 2. Why is different?
 >    > 
 >    > <details>
 >    > <summary>Click to view answers</summary>
->    >
+>    > 1. According with the results, in *Molecular Function* and *Biological Process* we have 0 GO terms and *Component Cellular* just 1 GO term. 
+>    > 2. Os genes que selecionamos são genes aleatórios, logo não deveria existir termos GO associados às 3 ontologias, o que significa que o resultado anterior (antes da filtragem) não está correto. 
 >    > </details>
 >    {: .question}
 {: .hands_on}
-
-
-
-
-
-
-
+> 
+> 
 > 
 # Simplification of graphs
 > 
