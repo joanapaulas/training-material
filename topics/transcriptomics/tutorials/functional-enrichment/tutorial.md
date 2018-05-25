@@ -1,7 +1,7 @@
 ---
 layout: tutorial_hands_on
 topic_name: transcriptomics
-tutorial_name: goenrichment
+tutorial_name: functional-enrichment
 ---
 
 # Introduction
@@ -10,17 +10,18 @@ tutorial_name: goenrichment
 
 <p>When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we make sense of the biological meaning of that list? One way is to perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions when compared with a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.</p>
 <br>
-<br>
 What is the Gene Ontology?<br>
 The [Gene Ontology](http://www.geneontology.org/) provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
  
 ![](images/GOexample.png)
+> 
 **Figure 1** QuickGO - http://www.ebi.ac.uk/QuickGO
 <br>
 <br>
 What is GO annotation?<br>
 Genes are associated to GO terms via annotations, where each gene can be associated to multiple annotations. An important notion to take into account when using GO is that, according to the **true path rule**, a gene annotated to a term is also implicitly annotated to each ancestor of that term. GO annotations have evidence codes that encode the type of evidence supporting them (eg. experimentally verified (a small minority), or inferred from in-silico experiments).    
-<br>
+> 
+> 
 > ### Agenda
 >
 > In this tutorial, we will deal with:
@@ -44,6 +45,7 @@ To perform a functional enrichment analysis, we need to have:
 - A list with all the genes to consider in the analysis: **population set**
 - Gene annotations, associating genes to GO terms
 - The GO ontology, with description of GO terms and their relationships
+> 
 > 
 For each GO term, we need to count how many (**k**) of the genes in the study set (**K**) are associated to the term, an how many (**n**) of the genes in the whole population (**N**) are associated to the same term. Then we test how likely would it be to obtain **k** genes associated to the term if **K** genes would be randomly sampled from the population. 
 
@@ -140,16 +142,10 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .comment} 
 {: .hands_on}
 > 
->  ## {% icon question %} Question
 > 
-> Question?
-> Let's go back a little bit, and reopen the trapnellPopulation file. If you go through the file, you'll see genes with 'NA', what does it mean?
-> 
-> <details>
-> <summary>Click to view answers</summary>
->It means that there are genes in our population that are not differentially expressed.
-> </details>
-{: .question}
+> ### {% icon comment %} Comments
+> Let's go back a little bit, and reopen the trapnellPopulation file. If you go through the file, you'll see genes with 'NA', this means that there are genes in our population that are not differentially expressed.
+{: .comment} 
 > 
 > 
 Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that are not differentially expressed. And then see the differences using the GOEnrichment tool.
@@ -176,7 +172,7 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 >    > <details>
 >    > <summary>Click to view answers</summary>
 >    > 1. According with the results, in *Molecular Function* and *Biological Process* we have 0 GO terms and *Component Cellular* just 1 GO term. <br> 
->    > 2. Os genes que selecionamos são genes aleatórios, logo não deveria existir termos GO associados às 3 ontologias, o que significa que o resultado anterior (antes da filtragem) não está correto. 
+>    > 2. Os genes não diferencialmente expressos que eleminamos não têm ligação direta com os genes diferencialmente expressos da nossa amostra, logo não vamos obter nenhum termo GO associado às ontologias. E também porque os genes que selecionamos são genes aleatórios, e consequentemente não deveria existir termos GO associados às 3 ontologias, o que significa que o resultado anterior (antes da filtragem) não está correto.
 >    > </details>
 >    {: .question}
 {: .hands_on}
