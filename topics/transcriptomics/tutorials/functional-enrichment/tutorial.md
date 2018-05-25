@@ -8,36 +8,30 @@ tutorial_name: functional-enrichment
 {:.no_toc}
 
 
-<p>When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we make sense of the biological meaning of that list? One way is to perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions when compared with a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.</p>
-<br>
-What is the Gene Ontology?<br>
+When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we make sense of the biological meaning of that list? One way is to perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions when compared with a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.
+
+What is the Gene Ontology?
 The [Gene Ontology](http://www.geneontology.org/) provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
  
 ![](images/GOexample.png)
 > 
 **Figure 1** QuickGO - http://www.ebi.ac.uk/QuickGO
-<br>
-<br>
-What is GO annotation?<br>
+
+What is GO annotation?
 Genes are associated to GO terms via annotations, where each gene can be associated to multiple annotations. An important notion to take into account when using GO is that, according to the **true path rule**, a gene annotated to a term is also implicitly annotated to each ancestor of that term. GO annotations have evidence codes that encode the type of evidence supporting them (eg. experimentally verified (a small minority), or inferred from in-silico experiments).    
-> 
-> 
-> 
+
 > ### Agenda
-> 
+>
 > In this tutorial, we will deal with:
 > 
 > 1. Functional Enrichment Analysis
 > 2. Methods to simplify the results
 > 3. Interpretation of the results
 > {:toc}
-> 
+>
 {: .agenda}
-> 
-> 
-> 
-> 
-> 
+
+ 
 # Functional Enrichment Analysis
 
 To perform a functional enrichment analysis, we need to have:
@@ -45,28 +39,25 @@ To perform a functional enrichment analysis, we need to have:
 - A list with all the genes to consider in the analysis: **population set**
 - Gene annotations, associating genes to GO terms
 - The GO ontology, with description of GO terms and their relationships
-> 
-> 
+ 
 For each GO term, we need to count how many (**k**) of the genes in the study set (**K**) are associated to the term, an how many (**n**) of the genes in the whole population (**N**) are associated to the same term. Then we test how likely would it be to obtain **k** genes associated to the term if **K** genes would be randomly sampled from the population. 
 
 The appropriate statistical test is the one-tailed variant of Fisher’s exact test, also known as hypergeometric test for over-representation. When the one-tailed version is applied, this test will compute the probability of observing at least the sample frequency, given the population frequency. The [hypergeometric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution) consists in the probability of **k** successes in **n** draws, without  replacement, from a finite population of size **N** that contains exactly **K** successful objects: 
 > 
 ![](images/formula.png)
-> 
-> 
-> 
-> 
-> 
+
 > ### {% icon hands_on %} Hands-on:
+>
 > For this first exercise we will use data from [Trapnell et al.](https://www.ncbi.nlm.nih.gov/pubmed/22383036 "Trapnell et al. data"). In this work, the authors created an artificial (in-silico) dataset of gene expression in Drosophila melanogaster, where 300 random genes were set to be differentially expressed between two conditions.
-> 
 > 1. **Create a new history** 
+>
 > 2. **Upload to the Galaxy** the following files:
 >    - go.obo  (LINK)
 >    - drosophila_gene_association.fb (LINK)
 >    - trapnellPopulation.tab (LINK)
- 
+>
 >    > ### {% icon tip %} Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
+> 
 >    > * **Click** on the upload button in the upper left of the interface.
 >    >
 >    > ![](images/galaxy_upload.png) 
@@ -74,41 +65,41 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > * Press **Choose local file** and search for your file.
 >    > * Press **Start** and wait for the upload to finish. Galaxy will automatically unpack the file.
 >    {: .tip}
-> 3. **Rename** the *go.obo* file to <span style="color:red">some **GO** text</span> and *drosophila_gene_association.fb* file to <span style="color:red">some **GO annotations Drosophila melanogaster** text</span>.
-> 
+>
+> 3. **Rename** the *go.obo* file to <span style="color:red">some **GO** text</span> and *drosophila_gene_association.fb* file to <span style="color:red">some **GO annotations Drosophila melanogaster** text</span>. 
+>
 >    > After you upload the files, and if you press the **eye icon** of *trapnellPopulation.tab* you should look someting like this:
-> ![](images/trapnellFile.png)
+>    > ![](images/trapnellFile.png)
 > **Figure 2** Trapnell file
-> 
-> 
+>
 > As you can see, we only have the population file. The file of the study population is missing, so well have to do a data manipulation to obtain it.
-> 
 > 4. In the tool menu, navigate to `Filter and Sort -> Filter data on any column using simple expressions`.
-> 
+>
 >    > ### {% icon comment %} Comments
 >    > The study sample represents the differentially expressed genes. These were chosen as having an adjusted p-value (last column) smaller than a given threshold. This value is arbitrary, so you may choose the level of significance you want. In this case, we select the genes with an adjusted p-value < 0,05. If you open the *trapnellPopulation.tab* file, the column 7 corresponds to the **p-values**.
 >    {: .comment}
-> 
+>
 > Let's go create the study sample.
 > 
 > 5. **Filter** {% icon tool %}: We need to change the following settings:
+>
 >    - **Filter**: `trapnellPopulation.tab`
 >    - **With following condition**: `c7 < 0.05`
 > ![](images/galaxyFilter.png)
+>
 > 6. This generate one file called *File on data 32*. **Rename** to trapnellStudy.
-> 
-> 
-> 
+>
 >    > ### {% icon comment %} Comments
->    > Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample.  
-> 
+>    > Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample. 
+> {: .comment}
+>
 > 7. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the four files.
+>
 >    - Use the default options.
 > ![](images/galaxyTrapnell.png)
-> 
-> 
-> 
+>
 >    > ## {% icon question %} Question
+>    >
 >    > After running, what were be the results?
 >    > 
 >    > <details>
@@ -116,22 +107,21 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > This will generate 6 files with the respective default names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. Where the three Result files are tables with the statistical tests for each GO Term, and the other three Graph files are graphs displaying the enrichment of the GO terms in the context of their relationships withing the ontology.
 >    > </details>
 >    {: .question}
-> 
+>
 > 8. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
-> 
-> 
+
 > As you can see, the output consists of a table with p values and frequencies. In addition, it also returns, based on the semantics of the GO terms, a graph, where you can view the enrichment results and highlighted enriched ontology branches. 
-> 
+>
 >    > ### {% icon comment %} Comments
 >    > For each GO term we obtain a p-value corresponding to a single, independent test. Since we are making multiple similar tests, the probability of at least one of them being a false positive increases. Therefore we need to make multiple tests.
 >    {: .comment} 
-> 
+>
 >    > ### {% icon comment %} Comments
 >    > In general we should correct in cases we’re testing multiple functional. However, the stochastic event (sampling of genes), normally it was already been the subject of statistical testing and multiple test correction. [Ver com o Daniel Faria]
 >    {: .comment} 
-> 
-> 
+>
 >    > ## {% icon question %} Question
+>    >
 >    > How many significant terms do we get?
 >    > 
 >    > <details> 
@@ -139,49 +129,45 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > When we ask how many significant terms, we want to see GO terms that have a p-value < 0.05. According with the results, in Molecular Function we have 5 GO terms, Biological Process we have 43 GO terms and Component Cellular we have 10 GO terms.
 >    > </details>
 >    {: .question}
-> 
-> 
-> 
+>
+
 > If you press the eye icon of the *Molecular Function* you should see something like this:
 > 
 > ![](images/mfTrapnell.png)
-> 
+>
 >    > ### {% icon comment %} Comments
 >    > The ~300 genes should be random. Nonetheless we still have significant terms… [Rever este comentário com o Daniel Faria]
 >    {: .comment} 
+>
 {: .hands_on}
-> 
-> 
+
+
 > ### {% icon comment %} Comments
+>
 > Let's go back a little bit, and reopen the trapnellPopulation file. If you go through the file, you'll see genes with 'NA', this means that there are genes in our population that are not differentially expressed.
 {: .comment} 
 > 
-> 
-> 
 Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that are not differentially expressed. And then see the differences using the GOEnrichment tool.
-> 
-> 
-> 
+ 
 > ### {% icon hands_on %} Hands-on:
+>
 > 1. **Filter** {% icon tool %}: We need to change the following settings:
 >    - **Filter**: `trapnellPopulation.tab`
 >    - **With following condition**: `c7 != 'NA'`
 > ![](images/galaxyFilterNA.png)
-> 
+>
 > 2. This generate one file called *File on data 32*. **Rename** to trapnellNewPopulation.
 > 3. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the new population.
 >    - Use the default options.
 > ![](images/galaxyTrapnellNewPop.png)
+>
 > 4. **Rename** files to MF New Trapnell, BP New Trapnell, CC New Trapnell, MF New graphTrapnell, BP New graphTrapnell and CC New graphTrapnell, respectively.
-> 
-> 
-> 
+>
 > Let's go see again the graph **MF New graphTrapnell**.
 > > ![](images/mfTrapnellNew.png)
-> 
-> 
-> 
+>
 >    > ## {% icon question %} Question
+>    >
 >    > 1. How many significant terms do we get? 
 >    > 2. Why is different?
 >    > 
@@ -193,8 +179,7 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 >    {: .question}
 {: .hands_on}
 > 
-> 
-> 
+ 
 # Simplification of graphs
 > 
 Graphs views are essential, but sometimes the graph view can become overwhelming due to the size of the results. To exemplify this issue, we will next perform functional enrichment analysis using a more realistic dataset from a study using the mouse model organism. The original dataset can be found [here](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE30352). In this [study](https://www.nature.com/articles/nature10532), the authors compared the gene expression of several tissues. Here, we will use results from the comparison between heart and brain.
