@@ -22,6 +22,7 @@ What is GO annotation?<br>
 Genes are associated to GO terms via annotations, where each gene can be associated to multiple annotations. An important notion to take into account when using GO is that, according to the **true path rule**, a gene annotated to a term is also implicitly annotated to each ancestor of that term. GO annotations have evidence codes that encode the type of evidence supporting them (eg. experimentally verified (a small minority), or inferred from in-silico experiments).    
 > 
 > 
+> 
 > ### Agenda
 > 
 > In this tutorial, we will deal with:
@@ -51,6 +52,8 @@ For each GO term, we need to count how many (**k**) of the genes in the study se
 The appropriate statistical test is the one-tailed variant of Fisher’s exact test, also known as hypergeometric test for over-representation. When the one-tailed version is applied, this test will compute the probability of observing at least the sample frequency, given the population frequency. The [hypergeometric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution) consists in the probability of **k** successes in **n** draws, without  replacement, from a finite population of size **N** that contains exactly **K** successful objects: 
 > 
 ![](images/formula.png)
+> 
+> 
 > 
 > 
 > 
@@ -89,10 +92,12 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > Let's go create the study sample.
 > 
 > 5. **Filter** {% icon tool %}: We need to change the following settings:
->    - **Filter**: trapnellPopulation.tab
->    - **With following condition**: c7 < 0.05
+>    - **Filter**: `trapnellPopulation.tab`
+>    - **With following condition**: `c7 < 0.05`
 > ![](images/galaxyFilter.png)
 > 6. This generate one file called *File on data 32*. **Rename** to trapnellStudy.
+> 
+> 
 > 
 >    > ### {% icon comment %} Comments
 >    > Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample.  
@@ -100,6 +105,8 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 7. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the four files.
 >    - Use the default options.
 > ![](images/galaxyTrapnell.png)
+> 
+> 
 > 
 >    > ## {% icon question %} Question
 >    > After running, what were be the results?
@@ -122,8 +129,9 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > ### {% icon comment %} Comments
 >    > In general we should correct in cases we’re testing multiple functional. However, the stochastic event (sampling of genes), normally it was already been the subject of statistical testing and multiple test correction. [Ver com o Daniel Faria]
 >    {: .comment} 
->  
->    >  ## {% icon question %} Question
+> 
+> 
+>    > ## {% icon question %} Question
 >    > How many significant terms do we get?
 >    > 
 >    > <details> 
@@ -131,6 +139,8 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > When we ask how many significant terms, we want to see GO terms that have a p-value < 0.05. According with the results, in Molecular Function we have 5 GO terms, Biological Process we have 43 GO terms and Component Cellular we have 10 GO terms.
 >    > </details>
 >    {: .question}
+> 
+> 
 > 
 > If you press the eye icon of the *Molecular Function* you should see something like this:
 > 
@@ -147,12 +157,15 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 {: .comment} 
 > 
 > 
+> 
 Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that are not differentially expressed. And then see the differences using the GOEnrichment tool.
+> 
+> 
 > 
 > ### {% icon hands_on %} Hands-on:
 > 1. **Filter** {% icon tool %}: We need to change the following settings:
->    - **Filter**: trapnellPopulation.tab
->    - **With following condition**: c7 != 'NA'
+>    - **Filter**: `trapnellPopulation.tab`
+>    - **With following condition**: `c7 != 'NA'`
 > ![](images/galaxyFilterNA.png)
 > 
 > 2. This generate one file called *File on data 32*. **Rename** to trapnellNewPopulation.
@@ -161,17 +174,21 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 > ![](images/galaxyTrapnellNewPop.png)
 > 4. **Rename** files to MF New Trapnell, BP New Trapnell, CC New Trapnell, MF New graphTrapnell, BP New graphTrapnell and CC New graphTrapnell, respectively.
 > 
+> 
+> 
 > Let's go see again the graph **MF New graphTrapnell**.
 > > ![](images/mfTrapnellNew.png)
 > 
->    >  ## {% icon question %} Question
+> 
+> 
+>    > ## {% icon question %} Question
 >    > 1. How many significant terms do we get? 
 >    > 2. Why is different?
 >    > 
 >    > <details>
 >    > <summary>Click to view answers</summary>
 >    > 1. According with the results, in *Molecular Function* and *Biological Process* we have 0 GO terms and *Component Cellular* just 1 GO term. <br> 
->    > 2. Os genes não diferencialmente expressos que eleminamos não têm ligação direta com os genes diferencialmente expressos da nossa amostra, logo não vamos obter nenhum termo GO associado às ontologias. E também porque os genes que selecionamos são genes aleatórios, e consequentemente não deveria existir termos GO associados às 3 ontologias, o que significa que o resultado anterior (antes da filtragem) não está correto.
+>    > 2. The non-differentially expressed genes that we exterminate do not have direct connection with the differentially expressed genes of our sample, so we will not get any GO term associated to the ontologies. And also because the genes we select are random genes, and consequently there should be no GO terms associated with the 3 ontologies, which means that the previous result (before the filtering) is not correct.
 >    > </details>
 >    {: .question}
 {: .hands_on}
@@ -182,15 +199,19 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 > 
 Graphs views are essential, but sometimes the graph view can become overwhelming due to the size of the results. To exemplify this issue, we will next perform functional enrichment analysis using a more realistic dataset from a study using the mouse model organism. The original dataset can be found [here](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE30352). In this [study](https://www.nature.com/articles/nature10532), the authors compared the gene expression of several tissues. Here, we will use results from the comparison between heart and brain.
 > 
+> 
+> 
 > ### {% icon hands_on %} Hands-on:
 > For the first exercise we will use as a study sample the differential genes (padjusted<0.05).
 > 1. **Upload to the Galaxy** the mouse_brain_vs._heart.txt, Mus_musculus_annotations_biomart_e92.tab and mouse_brain_vs_heart.difgenes.txt files.
-> 2. **Rename** the mouse_brain_vs._heart.txt file to **Mouse population**, Mus_musculus_annotations_biomart_e92.tab file to **GO annotations _Mus musculus_** and mouse_brain_vs_heart.difgenes.txt file to **Mouse diff**. 
+> 2. **Rename** the *mouse_brain_vs._heart.txt* file to **Mouse population**, *Mus_musculus_annotations_biomart_e92.tab* file to **GO annotations _Mus musculus_** and *mouse_brain_vs_heart.difgenes.txt* file to **Mouse diff**. 
 > 3. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment` for the new study sample.
 >    - Select **'No'** in the Summarize Output option.
-> ![](../../images/galaxyMouseDiff.png)
+> ![](images/galaxyMouseDiff.png)
+> 
 > 4. This will generate 6 files, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** to MF tabDiff, BP tabDiff, CC tabDiff, MF grapDiff, BP grapDiff and CC grapDiff, respectively.
 > 5. Analyze the table and graph from *Biological Process*.
+> 
 > 
 > ![](images/bpMouseDiff.png)
 > 
@@ -199,10 +220,13 @@ Graphs views are essential, but sometimes the graph view can become overwhelming
 >    {: .comment} 
 {: .hands_on}
 > 
+> 
+> 
 As you may notice, the number of enriched GO Terms is very high, with graphs that are virtually uninterpretable. One way to avoid this issue is to ignore singletons and skip dependent tests. But even then the graph is still overwhelming.
 > 
 > 
 The Summarize Output option in the GOEnrichment tool simplifies the results further, reducing the complexity while keeping branch information, although at a the cost os some specificity. [Pedir ao Daniel Faria para descrever o método um pouco mais - ver questão de artigo a publicar versus o que se põe aqui?].
+> 
 > 
 > 
 > ### {% icon hands_on %} Hands-on:
@@ -211,7 +235,10 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 > ![](images/galaxyMouseDiffSum.png)
 > 2. Analyze again the table and graph from *Biological Process*.
 > 
+> 
 > ![](images/bpMouseDiffSum.png)
+> 
+> 
 > 
 >    > ## {% icon question %} Question
 >    > Are there differences in complexity comparing the graph without the activation of the summarize output option and with?
@@ -224,10 +251,12 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 {: .hands_on}
 > 
 > 
+> 
 Another alternative tool to reduce the results is to simplify the GO Ontology being used, using GO slims. This gives a much simpler results, but can also gives a substantial loss in specificity, comparing with the Summarize Output. Basically, the GO slims represent cut-down versions of the GO ontologies containing a subset of the terms associated to GO. This gives an ontology without the detail of the specific fine grained terms, and this is the reason for the simpler results.
 > 
 > 
 Let’s use again the results of the mouse, but first we need to use GOSlimmer tool to convert the annotations file.
+> 
 > 
 > 
 > ### {% icon hands_on %} Hands-on:
@@ -240,26 +269,29 @@ Let’s use again the results of the mouse, but first we need to use GOSlimmer t
 >    {: .comment}
 >  
 > ![](images/galaxySlimer.png)
+> 
 > This will generate one file called **Slim Annotations**.
 {: .hands_on}
 > 
 > 
 Now we will go use the GOEnrichment tool with the new Slim Annotations file and the same study sample.
 > 
->  ### {% icon hands_on %} Hands-on:
+> 
+> ### {% icon hands_on %} Hands-on:
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment`.
 >    - Use the **GOSlim**, **Slim Annotations** and **Mouse population** files.
 >    - Select **'No'** in the Summarize Output option.
 > ![](images/galaxyMouseSlim.png)
 > 
+> 
 >    > ## {% icon question %} Question
 >    > 1. What is the difference when you use the GO Slim in data (instead of GO)?
 >    > 2. What is the difference when you apply the GO Slim in data (instead of the Summarize option)?
 >    >
->    > <details>se the GOSlim, Slim Annotations and Mouse popul
+>    > <details>
 >    > <summary>Click to view answers</summary>
 >    > 1. In addition to size reduction, the GO Slim shows you an representation of biological information by using high level terms that provide a broad overview of the biology. <br>
->    > 2. The difference between both is the ontology used. When we apply the summarize option, the GOEnrichment tool will return a summarized output (as we have seen previously), which uses the original / complete ontology. When we opted for GO Slim, the original annotation was summarized and because of this it will generate an even more summarized output, and consequently loses a lot of specification unlike the summarize option.
+>    > 2. The difference between both is the ontology used. When we apply the summarize option, the GOEnrichment tool will return a summarized output (as we have seen previously), which uses the original/complete ontology. When we opted for GO Slim, the original annotation was summarized and because of this it will generate an even more summarized output, and consequently loses a lot of specification unlike the summarize option.
 
 >    > </details>
 >    {: .question}
@@ -272,19 +304,22 @@ The interpretation that is performed on the results will depend on the biologica
 > Why is different?
 There is one important point to keep in mind during the analysis: statistically significant is different from biologically meaningful [Referir outra vez o caso do Trapnell?]. Its possible obtain an some biological or technical insight about the underlying experiment from statistically enriched terms, even if it isn’t readily apparent.
 > 
+> 
 Terms that are very generic tend to be difficult to interpret, since the very specific terms are generally not integrative. It is intended that terms that are sufficiently specific to transmit substantial biological, however, that are generic enough to integrate multiple genes.
+> 
 > 
 > 
 And now we go use two study samples, one with overexpressed genes and the other with underexpressed genes, from the same study before.
 > 
 > 
+> 
 > ### {% icon hands_on %} Hands-on: 
 > 1. **Upload to the Galaxy** the mouseOverexpressed.txt and the mouseUnderexpressed.txt files. 
+> 
+> 
 >    > ## {% icon question %} Question
->    >
->    > Question?
 >    > How do you know which genes are up- and downregulated? (open the Mouse population file)
-
+>    >
 >    > <details>
 >    > <summary>Click to view answers</summary>
 >    > It is through the logFC values that we derive the information whether the gene is up- or downregulated. If the logFC value is positive it means that the gene is upregulated, and if it is negative the gene is downregulate.
@@ -295,7 +330,7 @@ And now we go use two study samples, one with overexpressed genes and the other 
 >    > To select the up- and downregulated genes, in addition to logFC values, its also necessary define the p-value. In this case was an p-value < 0,01.
 >    {: .comment} 
 > 
-> 2. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment` for the both files (mouseOverexpressed.txt and the mouseUnderexpressed.txt).
+> 2. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment` for the both files (*mouseOverexpressed.txt* and the *mouseUnderexpressed.txt*).
 >    - Use the **GO**, the **GO annotations _Mus musculus_** and the **Mouse population** files.
 >    - Use the default options.
 > ![](images/galaxyMouseOver.png)
@@ -303,9 +338,10 @@ And now we go use two study samples, one with overexpressed genes and the other 
 > 
 > 3. This will generate 12 files, 6 for each sample, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** according the sample (under- and overexpressed): MF tableUnder, BP tableUnder, CC tableUnder, MF graphUnder, BP graphUnder, CC graphUnder, MF tableOver, BP tableOver, CC tableOver , MF graphOver, BP graphOver and CC graphOver.
 > 
+> 
 >    > ## {% icon question %} Question
 >    > When analyzing the both tables under and over, what are the related genes, heart or brain?
-
+>    >
 >    > <details>
 >    > <summary>Click to view answers</summary>
 >    > The *BP tableUnder* table regards the genes that are more expressed in the brain than in the heart, therefore the terms are related to brain function. Unlike the *BP tableOver* table, it has the most expressed gjoanapaulas/enes that are related to the heart.
