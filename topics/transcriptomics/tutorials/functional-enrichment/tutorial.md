@@ -62,7 +62,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    - drosophila_gene_association.fb (LINK)
 >    - trapnellPopulation.tab (LINK)
  
->    > ### <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
+>    > ### {% icon tip %} Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
 >    > * **Click** on the upload button in the upper left of the interface.
 >    >
 >    > ![](images/galaxy_upload.png) 
@@ -86,6 +86,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .comment}
 > 
 > Let's go create the study sample.
+> 
 > 5. **Filter** {% icon tool %}: We need to change the following settings:
 >    - **Filter**: trapnellPopulation.tab
 >    - **With following condition**: c7 < 0.05
@@ -95,7 +96,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > ### {% icon comment %} Comments
 >    > Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample.  
 > 
-> 4. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the four files.
+> 7. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the four files.
 >    - Use the default options.
 > ![](images/galaxyTrapnell.png)
 > 
@@ -110,7 +111,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > </details>
 >    {: .question}
 > 
-> 5. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
+> 8. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
 > 
 > 
 > As you can see, the output consists of a table with p values and frequencies. In addition, it also returns, based on the semantics of the GO terms, a graph, where you can view the enrichment results and highlighted enriched ontology branches. 
