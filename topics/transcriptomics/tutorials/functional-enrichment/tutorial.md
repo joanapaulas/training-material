@@ -60,8 +60,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 2. **Upload to the Galaxy** the following files:
 >    - go.obo  (LINK)
 >    - drosophila_gene_association.fb (LINK)
->    - Trapnell_study.txt (LINK)
->    - Trapnell_population.tab (LINK)
+>    - trapnellPopulation.tab (LINK)
  
 >    > ### <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Tip: Upload data to Galaxy [1](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html)
 >    > * **Click** on the upload button in the upper left of the interface.
@@ -73,18 +72,29 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .tip}
 > 3. **Rename** the *go.obo* file to <span style="color:red">some **GO** text</span> and *drosophila_gene_association.fb* file to <span style="color:red">some **GO annotations Drosophila melanogaster** text</span>.
 > 
->    > After you upload the files, and if you press the eye icon you should look someting like this:
+>    > After you upload the files, and if you press the **eye icon** of *trapnellPopulation.tab* you should look someting like this:
 > ![](images/trapnellFile.png)
 > **Figure 2** Trapnell file
 > 
->    >Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample. 
+> 
+> As you can see, we only have the population file. The file of the study population is missing, so well have to do a data manipulation to obtain it.
+> 4. In the tool menu, navigate to `Filter and Sort -> Filter data on any column using simple expressions`.
 > 
 >    > ### {% icon comment %} Comments
->    > The study sample represents the differentially expressed genes. These were chosen as having an adjusted p-value (last column) smaller than a given threshold. This value is arbitrary, so you may choose the level of significance you want. In this case, we select the genes with an adjusted p-value < 0,05. 
->    {: .comment} 
+>    > The study sample represents the differentially expressed genes. These were chosen as having an adjusted p-value (last column) smaller than a given threshold. This value is arbitrary, so you may choose the level of significance you want. In this case, we select the genes with an adjusted p-value < 0,05. If you open the *trapnellPopulation.tab* file, the column 7 corresponds to the **p-values**.
+>    {: .comment}
+> Let's go create the study sample.
+> 5. **Filter** {% icon tool %}: Now we need to change the settings:
+>    - **Filter**: trapnellPopulation.tab
+>    - **With following condition**: c7 < 0.05
+> ![](images/galaxyFilter.png)
+> 6. This generate one file called File on data 32. **Rename** to trapnellStudy.
+> 
+>    > ### {% icon comment %} Comments
+>    > Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample.  
 > 
 > 4. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the four files.
-> ..* Use the default options.
+>    - Use the default options.
 > ![](images/galaxyTrapnell.png)
 > 
 >    > ## {% icon question %} Question
@@ -124,14 +134,59 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > If you press the eye icon of the three graphs you should see something like this:
 > 
-> ![](images/ccTrapnell.png)
+> ![](images/mfTrapnell.png)
 > 
 >    > ### {% icon comment %} Comments
 >    > The ~300 genes should be random. Nonetheless we still have significant terms… [Rever este comentário com o Daniel Faria]
 >    {: .comment} 
 {: .hands_on}
 > 
+>  ## {% icon question %} Question
 > 
+> Question?
+> 1. Let's go back a little bit, and reopen the trapnellPopulation file. If you go through the file, you'll see genes with 'NA', what does it mean?
+> 
+> <details>
+> <summary>Click to view answers</summary>
+>It means that there are genes in our population that are not differentially expressed.
+> </details>
+{: .question}
+> 
+> 
+Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that are not differentially expressed.
+> 
+> ### {% icon hands_on %} Hands-on:
+> 1. **Filter** {% icon tool %}: Now we need to change the settings:
+>    - **Filter**: trapnellPopulation.tab
+>    - **With following condition**: c7 != 'NA'
+> ![](images/galaxyFilterNA.png)
+> 
+> 2. This generate one file called File on data 32. **Rename** to trapnellNewPopulation.
+> 3. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the new population.
+>    - Use the default options.
+> ![](images/galaxyTrapnellNewPop.png)
+> 4. **Rename** files to MF New Trapnell, BP New Trapnell, CC New Trapnell, MF New graphTrapnell, BP New graphTrapnell and CC New graphTrapnell, respectively.
+> Let's go see again the graph of *Molecular Function* (**MF New graphTrapnell**).
+> > ![](images/mfTrapnellNew.png)
+> 
+>    >  ## {% icon question %} Question
+>    >
+>    > Question?
+>    > 1. 
+>    > 
+>    > <details>
+>    > <summary>Click to view answers</summary>
+>    >
+>    > </details>
+>    {: .question}
+{: .hands_on}
+
+
+
+
+
+
+
 > 
 # Simplification of graphs
 > 
