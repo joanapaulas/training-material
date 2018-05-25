@@ -101,8 +101,6 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > ![](images/galaxyTrapnell.png)
 > 
 >    > ## {% icon question %} Question
->    >
->    > Question?
 >    > After running, what were be the results?
 >    > 
 >    > <details>
@@ -125,8 +123,6 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .comment} 
 >  
 >    >  ## {% icon question %} Question
->    >
->    > Question?
 >    > How many significant terms do we get?
 >    > 
 >    > <details> 
@@ -174,8 +170,6 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 > > ![](images/mfTrapnellNew.png)
 > 
 >    >  ## {% icon question %} Question
->    >
->    > Question?
 >    > 1. How many significant terms do we get? 
 >    > 2. Why is different?
 >    > 
@@ -225,8 +219,6 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 > ![](images/bpMouseDiffSum.png)
 > 
 >    > ## {% icon question %} Question
->    >
->    > Question?
 >    > Are there differences in complexity comparing the graph without the activation of the summarize output option and with?
 >    >
 >    > <details>
@@ -266,8 +258,6 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 > ![](images/galaxyMouseSlim.png)
 > 
 >    > ## {% icon question %} Question
->    >
->    > Question?
 >    > 1. What is the difference when you use the GO Slim in data (instead of GO)?
 >    > 2. What is the difference when you apply the GO Slim in data (instead of the Summarize option)?
 >    >
@@ -284,7 +274,7 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 > 
 # Interpretation of the results
 The interpretation that is performed on the results will depend on the biological information that we intend to extract. Enrichment analysis can be used in validation (e.g., of a protocol for extracting membrane proteins), characterization (e.g., of the effects of a stress in a organism) and elucidation (e.g., of the functions impacted by the knock-out of a transcription factor).
-> 
+> Why is different?
 There is one important point to keep in mind during the analysis: statistically significant is different from biologically meaningful [Referir outra vez o caso do Trapnell?]. Its possible obtain an some biological or technical insight about the underlying experiment from statistically enriched terms, even if it isn’t readily apparent.
 > 
 Terms that are very generic tend to be difficult to interpret, since the very specific terms are generally not integrative. It is intended that terms that are sufficiently specific to transmit substantial biological, however, that are generic enough to integrate multiple genes.
@@ -298,11 +288,11 @@ And now we go use two study samples, one with overexpressed genes and the other 
 >    > ## {% icon question %} Question
 >    >
 >    > Question?
->    > 1. How do you know which genes are up- and downregulated? (open the Mouse population file)
+>    > How do you know which genes are up- and downregulated? (open the Mouse population file)
 
 >    > <details>
 >    > <summary>Click to view answers</summary>
->    > 1. It is through the logFC values that we derive the information whether the gene is up- or downregulated. If the logFC value is positive it means that the gene is upregulated, and if it is negative the gene is downregulate.
+>    > It is through the logFC values that we derive the information whether the gene is up- or downregulated. If the logFC value is positive it means that the gene is upregulated, and if it is negative the gene is downregulate.
 >    > </details>
 >    {: .question}
 > 
