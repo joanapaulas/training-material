@@ -83,12 +83,13 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > ### {% icon comment %} Comments
 >    > The study sample represents the differentially expressed genes. These were chosen as having an adjusted p-value (last column) smaller than a given threshold. This value is arbitrary, so you may choose the level of significance you want. In this case, we select the genes with an adjusted p-value < 0,05. If you open the *trapnellPopulation.tab* file, the column 7 corresponds to the **p-values**.
 >    {: .comment}
+> 
 > Let's go create the study sample.
-> 5. **Filter** {% icon tool %}: Now we need to change the settings:
+> 5. **Filter** {% icon tool %}: We need to change the following settings:
 >    - **Filter**: trapnellPopulation.tab
 >    - **With following condition**: c7 < 0.05
 > ![](images/galaxyFilter.png)
-> 6. This generate one file called File on data 32. **Rename** to trapnellStudy.
+> 6. This generate one file called *File on data 32*. **Rename** to trapnellStudy.
 > 
 >    > ### {% icon comment %} Comments
 >    > Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample.  
@@ -132,7 +133,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > </details>
 >    {: .question}
 > 
-> If you press the eye icon of the three graphs you should see something like this:
+> If you press the eye icon of the *Molecular Function* you should see something like this:
 > 
 > ![](images/mfTrapnell.png)
 > 
@@ -153,15 +154,15 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 {: .question}
 > 
 > 
-Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that are not differentially expressed.
+Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that are not differentially expressed. And then see the differences using the GOEnrichment tool.
 > 
 > ### {% icon hands_on %} Hands-on:
-> 1. **Filter** {% icon tool %}: Now we need to change the settings:
+> 1. **Filter** {% icon tool %}: We need to change the following settings:
 >    - **Filter**: trapnellPopulation.tab
 >    - **With following condition**: c7 != 'NA'
 > ![](images/galaxyFilterNA.png)
 > 
-> 2. This generate one file called File on data 32. **Rename** to trapnellNewPopulation.
+> 2. This generate one file called *File on data 32*. **Rename** to trapnellNewPopulation.
 > 3. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the new population.
 >    - Use the default options.
 > ![](images/galaxyTrapnellNewPop.png)
