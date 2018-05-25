@@ -103,7 +103,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    > ## {% icon question %} Question
 >    >
 >    > Question?
->    > 1. After running, what were be the results?
+>    > After running, what were be the results?
 >    > 
 >    > <details>
 >    > <summary>Click to view answers</summary>
@@ -127,11 +127,11 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    >  ## {% icon question %} Question
 >    >
 >    > Question?
->    > 1. How many significant terms do we get?
+>    > How many significant terms do we get?
 >    > 
 >    > <details> 
 >    > <summary>Click to view answers</summary>
->    > 1. When we ask how many significant terms, we want to see GO terms that have a p-value < 0.05. According with the results, in Molecular Function we have 5 GO terms, Biological Process we have 43 GO terms and Component Cellular we have 10 GO terms.
+>    > When we ask how many significant terms, we want to see GO terms that have a p-value < 0.05. According with the results, in Molecular Function we have 5 GO terms, Biological Process we have 43 GO terms and Component Cellular we have 10 GO terms.
 >    > </details>
 >    {: .question}
 > 
@@ -147,7 +147,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >  ## {% icon question %} Question
 > 
 > Question?
-> 1. Let's go back a little bit, and reopen the trapnellPopulation file. If you go through the file, you'll see genes with 'NA', what does it mean?
+> Let's go back a little bit, and reopen the trapnellPopulation file. If you go through the file, you'll see genes with 'NA', what does it mean?
 > 
 > <details>
 > <summary>Click to view answers</summary>
@@ -227,7 +227,7 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 >    > ## {% icon question %} Question
 >    >
 >    > Question?
->    > 1. Are there differences in complexity comparing the graph without the activation of the summarize output option and with?
+>    > Are there differences in complexity comparing the graph without the activation of the summarize output option and with?
 >    >
 >    > <details>
 >    > <summary>Click to view answers</summary>
@@ -273,7 +273,7 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 >    >
 >    > <details>se the GOSlim, Slim Annotations and Mouse popul
 >    > <summary>Click to view answers</summary>
->    > 1. In addition to size reduction, the GO Slim shows you an representation of biological information by using high level terms that provide a broad overview of the biology.
+>    > 1. In addition to size reduction, the GO Slim shows you an representation of biological information by using high level terms that provide a broad overview of the biology. <br>
 >    > 2. The difference between both is the ontology used. When we apply the summarize option, the GOEnrichment tool will return a summarized output (as we have seen previously), which uses the original / complete ontology. When we opted for GO Slim, the original annotation was summarized and because of this it will generate an even more summarized output, and consequently loses a lot of specification unlike the summarize option.
 
 >    > </details>
@@ -319,11 +319,11 @@ And now we go use two study samples, one with overexpressed genes and the other 
 > 3. This will generate 12 files, 6 for each sample, with the respective names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. **Rename** according the sample (under- and overexpressed): MF tableUnder, BP tableUnder, CC tableUnder, MF graphUnder, BP graphUnder, CC graphUnder, MF tableOver, BP tableOver, CC tableOver , MF graphOver, BP graphOver and CC graphOver.
 > 
 >    > ## {% icon question %} Question
->    > 1. When analyzing the both tables under and over, what are the related genes, heart or brain?
+>    > When analyzing the both tables under and over, what are the related genes, heart or brain?
 
 >    > <details>
 >    > <summary>Click to view answers</summary>
->    > 1. The BP tableUnder table regards the genes that are more expressed in the brain than in the heart, therefore the terms are related to brain function. Unlike the BP tableOver table, it has the most expressed gjoanapaulas/enes that are related to the heart.
+>    > The *BP tableUnder* table regards the genes that are more expressed in the brain than in the heart, therefore the terms are related to brain function. Unlike the *BP tableOver* table, it has the most expressed gjoanapaulas/enes that are related to the heart.
 >    > </details>
 >    {: .question}
 {: .hands_on}
