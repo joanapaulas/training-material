@@ -23,15 +23,14 @@ Genes are associated to GO terms via annotations, where each gene can be associa
 > 
 > 
 > ### Agenda
->
+> 
 > In this tutorial, we will deal with:
->
+> 
 > 1. Functional Enrichment Analysis
 > 2. Methods to simplify the results
 > 3. Interpretation of the results
-
 > {:toc}
->
+> 
 {: .agenda}
 > 
 > 
