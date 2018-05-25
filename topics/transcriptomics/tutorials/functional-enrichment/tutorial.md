@@ -181,7 +181,7 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 >    > 
 >    > <details>
 >    > <summary>Click to view answers</summary>
->    > 1. According with the results, in *Molecular Function* and *Biological Process* we have 0 GO terms and *Component Cellular* just 1 GO term. 
+>    > 1. According with the results, in *Molecular Function* and *Biological Process* we have 0 GO terms and *Component Cellular* just 1 GO term. <br> 
 >    > 2. Os genes que selecionamos são genes aleatórios, logo não deveria existir termos GO associados às 3 ontologias, o que significa que o resultado anterior (antes da filtragem) não está correto. 
 >    > </details>
 >    {: .question}
