@@ -47,8 +47,9 @@ To perform a functional enrichment analysis, we need to have:
 > 
 For each GO term, we need to count how many (**k**) of the genes in the study set (**K**) are associated to the term, an how many (**n**) of the genes in the whole population (**N**) are associated to the same term. Then we test how likely would it be to obtain **k** genes associated to the term if **K** genes would be randomly sampled from the population. 
 
-The appropriate statistical test is the one-tailed variant of Fisher’s exact test, also known as hypergeometric test for over-representation. When the one-tailed version is applied, this test will compute the probability of observing at least the sample frequency, given the population frequency. The [hypergeometric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution) consists in the probability of **k** successes in **n** draws, without  replacement, from a finite population of size **N** that contains exactly **K** successful objects:  
- 					[formula]
+The appropriate statistical test is the one-tailed variant of Fisher’s exact test, also known as hypergeometric test for over-representation. When the one-tailed version is applied, this test will compute the probability of observing at least the sample frequency, given the population frequency. The [hypergeometric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution) consists in the probability of **k** successes in **n** draws, without  replacement, from a finite population of size **N** that contains exactly **K** successful objects: 
+> 
+![](images/formula.png)
 > 
 > 
 > 
