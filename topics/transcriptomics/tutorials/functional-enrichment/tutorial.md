@@ -78,6 +78,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 > 
 > As you can see, we only have the population file. The file of the study population is missing, so well have to do a data manipulation to obtain it.
+> 
 > 4. In the tool menu, navigate to `Filter and Sort -> Filter data on any column using simple expressions`.
 > 
 >    > ### {% icon comment %} Comments
@@ -167,6 +168,7 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 >    - Use the default options.
 > ![](images/galaxyTrapnellNewPop.png)
 > 4. **Rename** files to MF New Trapnell, BP New Trapnell, CC New Trapnell, MF New graphTrapnell, BP New graphTrapnell and CC New graphTrapnell, respectively.
+> 
 > Let's go see again the graph of *Molecular Function* (**MF New graphTrapnell**).
 > > ![](images/mfTrapnellNew.png)
 > 
