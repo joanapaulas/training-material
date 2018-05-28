@@ -278,7 +278,7 @@ There is one important point to keep in mind during the analysis: statistically 
  
 Terms that are very generic tend to be difficult to interpret, since the very specific terms are generally not integrative. It is intended that terms that are sufficiently specific to transmit substantial biological, however, that are generic enough to integrate multiple genes.
  
-And now we go use two study samples, one with overexpressed genes and the other with underexpressed genes, from the same study before.
+Now we go use two study samples, one with overexpressed genes and the other with underexpressed genes, from the same study before.
 
 > ### {% icon hands_on %} Hands-on: 
 >
