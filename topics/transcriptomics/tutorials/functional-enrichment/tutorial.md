@@ -108,6 +108,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .question}
 >
 > 8. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
+>
 > As you can see, the output consists of a table with p values and frequencies. In addition, it also returns, based on the semantics of the GO terms, a graph, where you can view the enrichment results and highlighted enriched ontology branches. 
 >
 >    > ### {% icon comment %} Comments
