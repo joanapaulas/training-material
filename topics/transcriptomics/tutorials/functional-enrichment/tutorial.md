@@ -8,11 +8,11 @@ tutorial_name: functional-enrichment
 {:.no_toc}
 
 
-When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we extract biological meaning from that list? 
-- One way to do so perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions than what would be expected in a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.
+When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we extract biological meaning from that list? <br/> 
+One way to do so perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions than what would be expected in a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.
 
 **What is the Gene Ontology?** <br/>
-The [Gene Ontology](http://www.geneontology.org/) is a structured, controlled vocabulary and classification of gene function in the molecular and cellular level. It is divided in three separate sub-ontologies or GO types: biological process (e.g., signal transduction), molecular function (e.g., ATPase activity) and cellular component (e.g., ribosome). These sub-ontologies are structured as directed acyclic graphs (a hierarchy with multi-parenting) of GO terms.
+The [Gene Ontology](http://www.geneontology.org/) is a structured, controlled vocabulary and classification of gene function at	 the molecular and cellular level. It is divided in three separate sub-ontologies or GO types: biological process (e.g., signal transduction), molecular function (e.g., ATPase activity) and cellular component (e.g., ribosome). These sub-ontologies are structured as directed acyclic graphs (a hierarchy with multi-parenting) of GO terms.
  
 ![](images/GOexample.png)
 > 
@@ -109,12 +109,11 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .question}
 >
 > 8. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
-> As you can see, the output consists of a table with p-values and frequencies for each GO type, plus an image with a graph view of the GO type, where you can visualize the enrichment results and highlighted enriched ontology branches. 
+> As you can see, the output consists of a table with p-values and frequencies for each GO type plus an image with a graph view of the GO type, where you can visualize the enrichment results and highlighted enriched ontology branches. 
 >
 >    > ### {% icon comment %} Comments
 >    > For each GO term we obtain a p-value corresponding to a single, independent test. Since we are making multiple similar tests, the probability of at least one of them being a false positive increases. Therefore we need to make a correction for multiple testing.
 >    {: .comment} 
-
 >
 >    > ### {% icon question %} Questions
 >    >
