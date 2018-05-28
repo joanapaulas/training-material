@@ -8,19 +8,20 @@ tutorial_name: functional-enrichment
 {:.no_toc}
 
 
-When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we make sense of the biological meaning of that list? One way is to perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions when compared with a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.
+When we have a large list of genes of interest (for example, a list of differentially expressed genes obtained from an RNA-Seq experiment), how do we extract biological meaning from that list? 
+- One way to do so perform functional enrichment analysis. This method consists of the application of statistical tests to verify if genes of interest are more often associated to certain biological functions than what would be expected in a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.
 
 **What is the Gene Ontology?** <br/>
-The [Gene Ontology](http://www.geneontology.org/) provides structured, controlled vocabularies and classifications of many domains of molecular and cellular biology. It is divided in three separate ontologies: biological process (e.g., signal transduction), molecular function (e.g., catalytic activity) and cellular component (e.g., ribosome). These ontologies are structured as a directed acyclic graph (a hierarchy with multi-parenting) connecting GO terms which represent all the different molecular and cellular functions.
+The [Gene Ontology](http://www.geneontology.org/) is a structured, controlled vocabulary and classification of gene function in the molecular and cellular level. It is divided in three separate sub-ontologies or GO types: biological process (e.g., signal transduction), molecular function (e.g., ATPase activity) and cellular component (e.g., ribosome). These sub-ontologies are structured as directed acyclic graphs (a hierarchy with multi-parenting) of GO terms.
  
 ![](images/GOexample.png)
 > 
 **Figure 1** QuickGO - http://www.ebi.ac.uk/QuickGO
 
-**What is GO annotation?** <br/>
-Genes are associated to GO terms via annotations, where each gene can be associated to multiple annotations. An important notion to take into account when using GO is that, according to the **true path rule**, a gene annotated to a term is also implicitly annotated to each ancestor of that term. GO annotations have evidence codes that encode the type of evidence supporting them (eg. experimentally verified (a small minority), or inferred from in-silico experiments).
+**What are GO annotations?** <br/>
+Genes are associated to GO terms via GO annotations. Each gene can have multiple annotations even of the same GO type. An important notion to take into account when using GO is that, according to the **true path rule**, a gene annotated to a term is also implicitly annotated to each ancestor of that term in the GO graph. GO annotations have evidence codes that encode the type of evidence supporting them. Only a small minority of genes have experimentally verified annotations; the large majority have annotations inferred electronically based on sequence homology or patterns.
 
-> ### Agenda
+> ### Overview
 >
 > In this tutorial, we will deal with:
 > 
@@ -34,21 +35,21 @@ Genes are associated to GO terms via annotations, where each gene can be associa
  
 # Functional Enrichment Analysis
 
-To perform a functional enrichment analysis, we need to have:
-- A set of genes of interest (eg. differentially expressed genes): **study set**
-- A list with all the genes to consider in the analysis: **population set**
-- Gene annotations, associating genes to GO terms
-- The GO ontology, with description of GO terms and their relationships
+To perform functional enrichment analysis, we need to have:
+- A set of genes of interest (e.g., differentially expressed genes): **study set**
+- A set with all the genes to consider in the analysis: **population set** (which must contain the study set)
+- GO annotations, associating the genes in the population set to GO terms.
+- The GO ontology, with the description of GO terms and their relationships.
  
-For each GO term, we need to count how many (**k**) of the genes in the study set (**K**) are associated to the term, an how many (**n**) of the genes in the whole population (**N**) are associated to the same term. Then we test how likely would it be to obtain **k** genes associated to the term if **K** genes would be randomly sampled from the population. 
+For each GO term, we need to count the frequency (**k**) of genes in the study set (**n**) that are associated to the term, and the frequency (**K**) of genes in the population set (**N**) that are associated to the same term. Then we test how likely would it be to obtain at least **k** genes associated to the term if **n** genes would be randomly sampled from the population, given the frequency **K** and size **N** of the population.
 
-The appropriate statistical test is the one-tailed variant of Fisher’s exact test, also known as hypergeometric test for over-representation. When the one-tailed version is applied, this test will compute the probability of observing at least the sample frequency, given the population frequency. The [hypergeometric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution) consists in the probability of **k** successes in **n** draws, without  replacement, from a finite population of size **N** that contains exactly **K** successful objects: 
+The appropriate statistical test is the one-tailed variant of Fisher’s exact test, also known as the hypergeometric test for over-representation. When the one-tailed version is applied, this test will compute the probability of observing at least the sample frequency, given the population frequency. The [hypergeometric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution) measures precisely the probability of **k** successes in **n** draws, without  replacement, from a finite population of size **N** that contains exactly **K** successful objects: 
 > 
 ![](images/formula.png)
 
 > ### {% icon hands_on %} Hands-on:
 >
-> For this first exercise we will use data from [Trapnell et al.](https://www.ncbi.nlm.nih.gov/pubmed/22383036 "Trapnell et al. data"). In this work, the authors created an artificial (in-silico) dataset of gene expression in Drosophila melanogaster, where 300 random genes were set to be differentially expressed between two conditions.
+> For this first exercise we will use data from [Trapnell et al.](https://www.ncbi.nlm.nih.gov/pubmed/22383036 "Trapnell et al. data"). In this work, the authors created an artificial dataset of gene expression in Drosophila melanogaster, where 300 random genes were set to be differentially expressed between two conditions.
 > 1. **Create a new history** 
 >
 > 2. **Upload to the Galaxy** the following files:
@@ -75,7 +76,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 4. In the tool menu, navigate to `Filter and Sort -> Filter data on any column using simple expressions`.
 >
 >    > ### {% icon comment %} Comments
->    > The study sample represents the differentially expressed genes. These were chosen as having an adjusted p-value (last column) smaller than a given threshold. This value is arbitrary, so you may choose the level of significance you want. In this case, we select the genes with an adjusted p-value < 0,05. If you open the *trapnellPopulation.tab* file, the column 7 corresponds to the **p-values**.
+>    > The study set represents the differentially expressed genes. These were chosen as having an adjusted p-value for the differential expression test (last column) smaller than a given threshold. This value is arbitrary, so you may choose the level of significance you want. In this case, we selected the genes with an adjusted p-value < 0,05. If you open the *trapnellPopulation.tab* file, the column 7 corresponds to the **p-values**.
 >    {: .comment}
 >
 >    > Let's go create the study sample.
@@ -89,7 +90,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 6. This generate one file called *File on data 32*. **Rename** to trapnellStudy.
 >
 >    > ### {% icon comment %} Comments
->    > Both files have the same information, the little difference between them files is the number of genes. Its important that the genes we have in the study sample must be also in the population sample. 
+>    > Both files have the same type of information, the difference between them is the number of genes, as the genes in the study sample are a subset of the population. 
 >    {: .comment}
 >
 > 7. **GOEnrichment** {% icon tool %}: Run `GOEnrichment` tool with the four files.
@@ -99,24 +100,21 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >
 >    > ### {% icon question %} Questions
 >    >
->    > After running, what were be the results?
+>    > What were be the GOEnrichment results?
 >    > <details>
 >    > 
 >    > <summary>Click to view answers</summary>
->    > This will generate 6 files with the respective default names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. Where the three Result files are tables with the statistical tests for each GO Term, and the other three Graph files are graphs displaying the enrichment of the GO terms in the context of their relationships withing the ontology.
+>    > This will generate 6 files with the respective default names: MF_Result.txt, BP_Result.txt, CC_Result.txt, MF_Graph, BP_Graph and CC_Graph. Where the three Result files are tables with the statistical tests for each GO Term, and the other three Graph files are images files displaying a graph view of the enriched GO terms.
 >    > </details>
 >    {: .question}
 >
 > 8. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
-> As you can see, the output consists of a table with p values and frequencies. In addition, it also returns, based on the semantics of the GO terms, a graph, where you can view the enrichment results and highlighted enriched ontology branches. 
+> As you can see, the output consists of a table with p-values and frequencies for each GO type, plus an image with a graph view of the GO type, where you can visualize the enrichment results and highlighted enriched ontology branches. 
 >
 >    > ### {% icon comment %} Comments
->    > For each GO term we obtain a p-value corresponding to a single, independent test. Since we are making multiple similar tests, the probability of at least one of them being a false positive increases. Therefore we need to make multiple tests.
+>    > For each GO term we obtain a p-value corresponding to a single, independent test. Since we are making multiple similar tests, the probability of at least one of them being a false positive increases. Therefore we need to make a correction for multiple testing.
 >    {: .comment} 
->
->    > ### {% icon comment %} Comments
->    > In general we should correct in cases we’re testing multiple functional. However, the stochastic event (sampling of genes), normally it was already been the subject of statistical testing and multiple test correction. [Ver com o Daniel Faria]
->    {: .comment} 
+
 >
 >    > ### {% icon question %} Questions
 >    >
@@ -205,9 +203,9 @@ Graphs views are essential, but sometimes the graph view can become overwhelming
 >    {: .comment} 
 {: .hands_on}
 
-As you may notice, the number of enriched GO Terms is very high, with graphs that are virtually uninterpretable. One way to avoid this issue is to ignore singletons and skip dependent tests. But even then the graph is still overwhelming.
+As you may notice, the number of enriched GO Terms is very high, with graphs that are too extensive to analyze manually. And this is despite the fact that GOEnrichment ignores singletons and skips dependent tests by default precisely to avoid enrichment results that are too extensive and not informative.
 
-The Summarize Output option in the GOEnrichment tool simplifies the results further, reducing the complexity while keeping branch information, although at a the cost os some specificity. [Pedir ao Daniel Faria para descrever o método um pouco mais - ver questão de artigo a publicar versus o que se põe aqui?].
+The Summarize Output option in the GOEnrichment tool addresses this problem by conflating branches/families of enriched GO terms and selecting the most representative term(s) from them (usually 1-2 term per family). The greatly simplifies the results while retaining branch information, and thus ensuring that every enriched family of functions is present in the results. Some specificity is necessarily lost, but the trade-off is that the results become easier and more intuitive to analyze.
  
 > ### {% icon hands_on %} Hands-on:
 >
@@ -220,17 +218,18 @@ The Summarize Output option in the GOEnrichment tool simplifies the results furt
 > ![](images/bpMouseDiffSum.png)
 >
 >    > ### {% icon question %} Questions
->    > 1. Are there differences in complexity comparing the graph without the activation of the summarize output option and with?
+>    > 1. Are there differences in complexity comparing the graph with and without the summarize output option?
 >    > <details>
 >    >
 >    > <summary>Click to view answers</summary>
->    > 1. Yes, there are differences. As you can see, the activation of the 'summarize' option reduces the size of the graph because, this parameter aims to remove the related terms from the list of enriched GO terms. Resulting in a more summarized graph,  that is, it presents the functions that have a higher frequency in the population. [Com o Daniel Faria, explicar um pouco mais]
+>    > 1. Yes, there are differences. As you can see, the activation of the 'summarize' option reduces the size of the graph because this parameter causes families of GO terms to be conflated. Each major branch in the full results is still present in the summarized results, but now is reduced to 1 or 2 most representative terms, leading to a graph that is much easier to interpret while still containing all the key functional information.
 >    > </details>
 >    {: .question}
 {: .hands_on}
  
-Another alternative tool to reduce the results is to simplify the GO Ontology being used, using GO slims. This gives a much simpler results, but can also gives a substantial loss in specificity, comparing with the Summarize Output. Basically, the GO slims represent cut-down versions of the GO ontologies containing a subset of the terms associated to GO. This gives an ontology without the detail of the specific fine grained terms, and this is the reason for the simpler results.
-Let’s use again the results of the mouse, but first we need to use GOSlimmer tool to convert the annotations file.
+Another approach to reduce the complexity of results is to use a shallower version of GO, the GO slims. GO slims are transversal cuts of GO that cover all key branches but lack specific terms. Thus, using them leads to much simpler results than using the full GO, but also leads to a substantial loss in specificity, which is greater han that of the Summarize Output option. 
+
+To test the GO slim approach, let us use the mouse dataset again. First, however, we need to use GOSlimmer tool to convert the annotations file from full GO to GO slim (as GO annotations are typically made to terms that are too specific to be in the GO slim, and thus need to be extended by the true path rule).
 
 > ### {% icon hands_on %} Hands-on:
 >
@@ -253,7 +252,7 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 > ### {% icon hands_on %} Hands-on:
 >
 > 1. **GOEnrichment** <i class="fa fa-wrench" aria-hidden="true"></i>: Run `GOEnrichment`.
->    - Use the **GOSlim**, **Slim Annotations** and **Mouse population** files.
+>    - Use the **GOSlim**, **Slim Annotations**, **Mouse diff** and **Mouse population** files.
 >    - Select **'No'** in the Summarize Output option.
 > ![](images/galaxyMouseSlim.png)
 >
@@ -276,7 +275,7 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 
 # Interpretation of the results
 The interpretation that is performed on the results will depend on the biological information that we intend to extract. Enrichment analysis can be used in validation (e.g., of a protocol for extracting membrane proteins), characterization (e.g., of the effects of a stress in a organism) and elucidation (e.g., of the functions impacted by the knock-out of a transcription factor).
-Why is different? There is one important point to keep in mind during the analysis: statistically significant is different from biologically meaningful [Referir outra vez o caso do Trapnell?]. Its possible obtain an some biological or technical insight about the underlying experiment from statistically enriched terms, even if it isn’t readily apparent.
+There is one important point to keep in mind during the analysis: statistically significant is different from biologically meaningful [Referir outra vez o caso do Trapnell?]. Its possible obtain an some biological or technical insight about the underlying experiment from statistically enriched terms, even if it isn’t readily apparent.
  
 Terms that are very generic tend to be difficult to interpret, since the very specific terms are generally not integrative. It is intended that terms that are sufficiently specific to transmit substantial biological, however, that are generic enough to integrate multiple genes.
  
