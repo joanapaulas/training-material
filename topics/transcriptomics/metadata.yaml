@@ -153,8 +153,7 @@ material:
       - "What is enrichment analysis?"
       - "How do I perform functional enrichment analysis?"
     objectives:
-      - "Learn what is enrichment analysis, gene ontology (GO) and GO annotations."
-      - "Perform functional enrichment analysis using GOEnrichment."
+      - "Perform functional enrichment analysis using the GOEnrichment tool."
     time_estimation: "1h"
     key_points:
     contributors:
