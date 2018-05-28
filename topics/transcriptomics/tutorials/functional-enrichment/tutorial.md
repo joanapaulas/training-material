@@ -157,11 +157,8 @@ Let's go manipulat the *trapnellPopulation.tab* file to remove the genes that ar
 > ![](images/galaxyTrapnellNewPop.png)
 >
 > 4. **Rename** files to MF New Trapnell, BP New Trapnell, CC New Trapnell, MF New graphTrapnell, BP New graphTrapnell and CC New graphTrapnell, respectively.
-><span style="color:blue">some *blue* text</span>.
 > Let's go see again the graph **MF New graphTrapnell**.
-> 
-> 
-> 
+>
 > ![](images/mfTrapnellNew.png)
 >
 > 
