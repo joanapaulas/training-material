@@ -140,6 +140,25 @@ material:
     key_points:
     contributors:
       - nekrut
+  -
+    title: "Functional Enrichment Analysis"
+    type: "tutorial"
+    name: "functional-enrichment"
+    zenodo_link: ""
+    workflows: no
+    galaxy_tour: no
+    hands_on: yes
+    slides: no
+    questions:
+      - "What is enrichment analysis?"
+      - "How do I perform functional enrichment analysis?"
+    objectives:
+      - "Learn what is enrichment analysis, gene ontology (GO) and GO annotations."
+      - "Perform functional enrichment analysis using GOEnrichment."
+    time_estimation: "1h"
+    key_points:
+    contributors:
+      - joanapaulas
 
 maintainers:
   - bebatut
