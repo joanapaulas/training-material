@@ -109,12 +109,7 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 >    {: .question}
 >
 > 8. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
-<<<<<<< HEAD
->
-> As you can see, the output consists of a table with p values and frequencies. In addition, it also returns, based on the semantics of the GO terms, a graph, where you can view the enrichment results and highlighted enriched ontology branches. 
-=======
 > As you can see, the output consists of a table with p-values and frequencies for each GO type plus an image with a graph view of the GO type, where you can visualize the enrichment results and highlighted enriched ontology branches. 
->>>>>>> functional-enrichment
 >
 >    > ### {% icon comment %} Comments
 >    > For each GO term we obtain a p-value corresponding to a single, independent test. Since we are making multiple similar tests, the probability of at least one of them being a false positive increases. Therefore we need to make a correction for multiple testing.
