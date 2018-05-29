@@ -317,7 +317,7 @@ For the second exercice, we will continue to work in the same study set before b
 >    > <details>
 >    >
 >    > <summary>Click to view answers</summary>
->    > The samples correspond to the expressions that occur in the tissues referring to the brain and heart, so the results in the tables will have to correspond to the specific functions of each organ. When we analyze the tables, it is verified that in the **BP tableUnder** table (underexpressed genes) is constituted by genes expressed in the brain, which biologically makes sense. While in the **BP tableOver** table (genes overexpressed) we observe the genes that are expressed in heart. The application of GOErichment tool (as you can see) is great to see the enriched functions that exists in each organ.
+>    > The samples correspond to the expressions that occur in the tissues referring to the brain and heart, so the results in the tables (and also in the graphs) will have to correspond to the specific functions of each organ. When we analyze the tables, it is verified that in the **BP tableUnder** table (underexpressed genes) is constituted by genes expressed in the brain, which biologically makes sense. While in the **BP tableOver** table (genes overexpressed) we observe the genes that are expressed in heart. The application of GOErichment tool (as you can see) is great to see the enriched functions that exists in each organ.
 >    > </details>
 >    {: .question}
 {: .hands_on}
@@ -325,5 +325,5 @@ For the second exercice, we will continue to work in the same study set before b
 
 # Conclusion
 {:.no_toc}
-Functional enrichment is a good way to look for certain patterns in populations but their analysis can become a complicated process because of its complexity. And the way to contorne the complexity is to use the GOEnrichment tool. This tool gives us an visualization more simplified of our data, showing us the enriched GO terms from our sets. This simplification is generate because the Summarize Output option, this parameter will reduce the complexity and gives us the most representative/important terms, and consequently a better interpretation from our results.
+Functional enrichment is a good way to look for certain patterns in populations but their analysis can become a complicated process because of its complexity. And the way to contorne the complexity is to use the GOEnrichment tool. This tool gives us an visualization more simplified, showing us the enriched GO terms from our sets. This simplification is generate because the Summarize Output option, this parameter will reduce the complexity and gives us the most representative/important terms, and consequently a better interpretation from our results.
 
