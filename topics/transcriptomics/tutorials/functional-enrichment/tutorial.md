@@ -110,7 +110,7 @@ For this first exercise we will use data from [Trapnell et al.](https://www.ncbi
 >
 > 8. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
 >
->
+> 
 > As you can see, the output consists of a table with p-values and frequencies for each GO type plus an image with a graph view of the GO type, where you can visualize the enrichment results and highlighted enriched ontology branches. 
 >
 >    > ### {% icon comment %} Comments
@@ -126,6 +126,7 @@ For this first exercise we will use data from [Trapnell et al.](https://www.ncbi
 >    > When we ask how many significant terms, we want to see GO terms that have a p-value < 0.05. According with the results, in Molecular Function we have 5 GO terms, Biological Process we have 43 GO terms and Component Cellular we have 10 GO terms.
 >    > </details>
 >    {: .question}
+>
 > If you press the eye icon of the *Molecular Function* you should see something like this:
 > 
 > ![](images/mfTrapnell.png)
