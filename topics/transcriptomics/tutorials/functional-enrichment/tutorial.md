@@ -267,7 +267,7 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 >    >
 >    > *Component Cellular* with full GO
 >    > ![](images/ccSum.png)
->    > *Component Cellular* with the GO Slim
+>    > *Component Cellular* with GO Slim
 >    > ![](images/ccSlimSum.png)
 >    > <details>
 >    >
