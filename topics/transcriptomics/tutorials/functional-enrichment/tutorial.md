@@ -261,14 +261,10 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 >    - Use the default options.
 > ![](images/galaxyMouseSlim.png)
 >
-> *Component Cellular* with full GO
-> ![](images/ccSum.png)
-> *Component Cellular* with the GO Slim
-> ![](images/ccSlimSum.png)
->
 > ### {% icon question %} Questions
 >    >
 >    > 1. What differences do you observe when comparing the results obtained with the GO Slim to those obtained with the full GO, with the Summarize Output option?
+>    >
 >    > *Component Cellular* with full GO
 >    > ![](images/ccSum.png)
 >    > *Component Cellular* with the GO Slim
