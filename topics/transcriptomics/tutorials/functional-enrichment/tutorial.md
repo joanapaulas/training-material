@@ -110,6 +110,7 @@ For this first exercise we will use data from [Trapnell et al.](https://www.ncbi
 >
 > 8. **Rename** files to MF Trapnell, BP Trapnell, CC Trapnell, MF graphTrapnell, BP graphTrapnell and CC graphTrapnell, respectively.
 >
+>
 > As you can see, the output consists of a table with p-values and frequencies for each GO type plus an image with a graph view of the GO type, where you can visualize the enrichment results and highlighted enriched ontology branches. 
 >
 >    > ### {% icon comment %} Comments
