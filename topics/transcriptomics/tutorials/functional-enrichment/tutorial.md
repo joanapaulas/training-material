@@ -264,10 +264,14 @@ Now we will go use the GOEnrichment tool with the new Slim Annotations file and 
 >    > ### {% icon question %} Questions
 >    >
 >    > 1. What differences do you observe when comparing the results obtained with the GO Slim to those obtained with the full GO, with the Summarize Output option?
+>    > *Component Cellular* with full GO
+>    > ![](images/ccSum.png)
+>    > *Component Cellular* with the GO Slim
+>    > ![](images/ccSlimSum.png)
 >    > <details>
 >    >
 >    > <summary>Click to view answers</summary>
->    > 1. The differences that you observed is because the ontology used. When we apply the summarize option with the full GO, the GOEnrichment tool will return a summarized output (as we have seen previously), more simplify if you do not use the summarize option, but loses some specification. When we opted for GO Slim, the original annotation was summarized and because of this it will generate an even more summarized output, but consequently loses a lot of specification.
+>    > 1. The differences that you observed is because the ontology used. When we apply the summarize option with the full GO, the GOEnrichment tool will return a summarized output (as we have seen previously), more simplify if you do not use the summarize option. When we opted for GO Slim, the original annotation was summarized and because of this it will generate an even more summarized output, but consequently loses a lot of specification.
 >    > </details>
 >    {: .question}
 >
