@@ -150,8 +150,8 @@ material:
     hands_on: yes
     slides: no
     objectives:
-      - "Learn what is enrichment analysis, gene ontology (GO) and GO annotations."
-      - "Perform functional enrichment analysis using the GOEnrichment tool."
+      - "Learn what is enrichment analysis, gene ontology (GO) and GO annotations"
+      - "Perform functional enrichment analysis using the GOEnrichment tool"
     time_estimation: "1h"
     key_points:
     contributors:
