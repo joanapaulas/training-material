@@ -159,7 +159,7 @@ material:
   -
     title: "RNA-Seq Analysis"
     type: "tutorial"
-    name: "ref_based_diff"
+    name: "rnaSeq"
     zenodo_link: ""
     workflows: no
     galaxy_tour: no

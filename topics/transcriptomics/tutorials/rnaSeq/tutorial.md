@@ -1,7 +1,7 @@
-﻿---
+---
 layout: tutorial_hands_on
-topic_name: RNA-Seq
-tutorial_name: ref_based_diff
+topic_name: transcriptomics
+tutorial_name: rnaSeq
 ---
 
 This tutorial is a shortened version of an [RNA-Seq course](https://github.com/Pfern/ADER17).
