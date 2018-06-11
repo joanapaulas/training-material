@@ -53,7 +53,7 @@ To make this tutorial fast to execute, we selected just reads corresponding to a
 >    > * Select **Paste/Fetch Data**
 >    > * Paste the link for each of the files into the text field
 >    > * Select **fastqsanger.gz** In the **Type (set all)** box
->    > * Press **Start**    
+>    > * Press **Start** 
 >    {: .tip}
 > 
 > 
@@ -340,13 +340,13 @@ The first output of **DESeq2** is a tabular file. The columns are:
 
 In addition to the list of genes, **DESeq2** outputs a graphical summary of the results, useful to evaluate the quality of the experiment:
 
-1. Histogram of *p*-values for all tests
+1. Histogram of *p*-values for all tests.
 2. [MA plot](https://en.wikipedia.org/wiki/MA_plot): global view of the relationship between the expression change of conditions (log ratios, M), the average expression strength of the genes (average mean, A), and the ability of the algorithm to detect differential gene expression. The genes that passed the significance threshold (adjusted p-value < 0.1) are colored in red.
-3. Principal Component Analysis ([PCA](https://en.wikipedia.org/wiki/Principal_component_analysis)) with the first two axes
+3. Principal Component Analysis ([PCA](https://en.wikipedia.org/wiki/Principal_component_analysis)) with the first two axes. 
 
     Each sample is plotted as an individual data point. This type of plot is useful for visualizing the overall effect of experimental covariates and batch effects.
 
-	> ### :question: Question
+    > ### :question: Question
     >
     > What is the first axis separating?
     > 
