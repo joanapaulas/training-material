@@ -46,16 +46,18 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 > 
 ![](images/formula.png)
 
-For this first exercise we will use data from [Trapnell et al.](https://www.ncbi.nlm.nih.gov/pubmed/22383036 "Trapnell et al. data"). In this work, the authors created an artificial dataset of gene expression in *Drosophila melanogaster*, where 300 random genes were set to be differentially expressed between two conditions.
+For this first exercise we will use data from [Trapnell et al. 2014](https://www.ncbi.nlm.nih.gov/pubmed/22383036 "Trapnell et al. data"). In this work, the authors created an artificial dataset of gene expression in *Drosophila melanogaster*, where 300 random genes were set to be differentially expressed between two conditions.
 
 > ### {% icon hands_on %} Hands-on:
 >
 > 1. **Create a new history** 
 >
+> The datasets is available at [Zenodo](https://zenodo.org/record/1255038#.Wx4qTBwh3CI) to download.
+>
 > 2. **Upload to the Galaxy** the following files:
->    - go.obo  (LINK)
->    - drosophila_gene_association.fb (LINK)
->    - trapnellPopulation.tab (LINK)
+>    - go.obo 
+>    - drosophila_gene_association.fb 
+>    - trapnellPopulation.tab 
 >
 >    > ### {% icon tip %} Tip: Upload data to Galaxy [<span style="color:red">[1]</span>](https://galaxyproject.github.io/training-material/topics/introduction/tutorials/galaxy-intro-peaks2genes/tutorial.html) 
 >    > * **Click** on the upload button in the upper left of the interface.
