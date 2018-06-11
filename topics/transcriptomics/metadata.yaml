@@ -156,21 +156,6 @@ material:
     key_points:
     contributors:
       - joanapaulas
-  -
-    title: "RNA-Seq Analysis"
-    type: "tutorial"
-    name: "rna-seq"
-    zenodo_link: ""
-    workflows: no
-    galaxy_tour: no
-    hands_on: yes
-    slides: no
-    objectives:
-      - ""
-    time_estimation: "1h"
-    key_points:
-    contributors:
-      - dsobral
 
 maintainers:
   - bebatut
