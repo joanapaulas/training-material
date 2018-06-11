@@ -156,6 +156,21 @@ material:
     key_points:
     contributors:
       - joanapaulas
+  -
+    title: "RNA-Seq Analysis"
+    type: "tutorial"
+    name: "rna-seq"
+    zenodo_link: ""
+    workflows: no
+    galaxy_tour: no
+    hands_on: yes
+    slides: no
+    objectives:
+      - ""
+    time_estimation: "1h"
+    key_points:
+    contributors:
+      - dsobral
 
 maintainers:
   - bebatut
@@ -189,7 +204,8 @@ references:
     summary: "Evaluation of methods for differential gene expression analysis"
   -
     authors: "Charlotte Soneson & Mauro Delorenzi"
-    title: "A comparison of methods for differential expression analysis of RNA-seq data"
+    title: "A comparison of methods for difffatal: Unable to read current working directory: No such file or directory
+erential expression analysis of RNA-seq data"
     link: "http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-91"
     summary: ""
   -
