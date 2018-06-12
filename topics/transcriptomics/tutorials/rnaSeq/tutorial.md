@@ -104,15 +104,15 @@ We can now map all the RNA sequences on the *Drosophila melanogaster* genome usi
 > ### :pencil2: Hands-on: Spliced mapping
 >
 > 1. **HISAT2** :wrench:: Run **HISAT2** with:
->    - "FASTQ" as "Input data format"
->    - "Individual unpaired reads"
->    - mut_lib1_R1 fastq (.gz or not) as "Reads"
->    - "Drosophila_BDGP6" as reference genome
+>    - Source for the reference genome: `Use a built-in genome`
+>    - Select a reference genome: `D. melanogaster Aug. 2014 (BDGP Release 6 + ISO1 MT/dm6)(dm6)`
+>    - Single-end or paired-end reads?: `Single-end`
+>    - FASTA/Q file: `mut_lib1_R1 fastq` (.gz or not)
 >
 >    > ### :bulb: Tip: Running with multiple samples simultaneously
 >    >
->    > * In the "Reads" choose "Multiple Datasets" and select the fastq files for all samples
->    > * Press **Execute**
+>    > * In the "FASTA/Q file" choose "Multiple Datasets" and select the fastq files for all samples.
+>    > * Press **Execute**.
 >    {: .tip}
 >
 >    > ### :bulb: Tip: Compressed fastq files
@@ -137,9 +137,8 @@ We can now map all the RNA sequences on the *Drosophila melanogaster* genome usi
 >    >    <details>
 >    >    <summary>Click to view answer</summary>
 >    >    <ol type="1">
->    >    <li>....</li>
->    >    <li>180208 reads aligned exactly one time</li>
->    >    <li>17529 aligned more than one time</li>
+>    >    <li>180600 reads aligned exactly one time</li>
+>    >    <li>17137 aligned more than one time</li>
 >    >    <li>The overall alignment rate is 99.79%</li>
 >    >    </ol>
 >    >    </details>
@@ -172,10 +171,10 @@ In principle, the counting of reads overlapping with genomic features is a fairl
 > ### :pencil2: Hands-on: Counting the number of reads per annotated gene
 >
 > 1. **HTSeq-count** :wrench:: Run **HTSeq-count** on the BAM files from Hisat2 with
->    - `Drosophila_melanogaster.BDGP6.85.sample.gtf` as "GFF file"
->    - The "Union" mode
->    - A "Minimum alignment quality" of 10
->    - "Stranded": No
+>    - GFF file: `Drosophila_melanogaster.BDGP6.85.sample.gtf`
+>    - Mode: `Union`
+>    - Stranded: `No`
+>    - Minimum alignment quality: `10`
 >
 >    > ### :nut_and_bolt: Comment
 >    > By default, htseq-count assumes the library to be stranded. If your data is not stranded, you will loose about 50% of your counts. If you don't know, it is probably best to start with unstranded.
@@ -190,7 +189,7 @@ In principle, the counting of reads overlapping with genomic features is a fairl
 >    > 
 >    >    <details>
 >    >    <summary>Click to view answers</summary>
->    >    <ol type="1">
+>    >    <ol type="1">es on the Drosophila mela
 >    >    <li>The result files consist of a tabular file with two columns: the gene id and the number of reads mapped on the corresponding gene</li>
 >    >    <li>The gene with more reads in all samples is FBgn0000042 (Act5C, an actin gene).</li>
 >    >    </ol>
@@ -204,7 +203,7 @@ In principle, the counting of reads overlapping with genomic features is a fairl
 In the end of the previous process, we have generated tables of counts, with the number of reads mapping to each of the genes (or transcripts). We will now identify which genes are impacted by the mutation based on those counts. We could compare directly the count files and estimate genes differentially expressed. Nonetheless, the number of sequenced reads mapped to a gene depends on several factors such as the sample's sequencing depth (total number of reads), the gene length, it's nucleotide composition, among other confounding factors.
 
 > ### :nut_and_bolt: Comment
-> Salmon already provides normalized values (TPM) that takes into account some of these confounding factors. Nonetheless, there is yet no consensus on whether those estimates are the most appropriate for using in differential expression analysis. 
+> Salmon already provides normalized values (TPM) that takes into account some of these confounding factors. Nonetheless, there is yet no consensus on whether those estimates are the most appropriate for using in differential expression analysis. **RETIRAR ???**
 {: .comment}
 
 Either for within or for inter-sample comparison, the gene counts need to be normalized. This normalization step is performed by tools specialized in differential analysis using count data, such as [**DESeq2**](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) and [**edgeR**](https://bioconductor.org/packages/release/bioc/html/edgeR.html). These programs take as input tables of gene counts (**non-normalized**).
@@ -233,7 +232,8 @@ The first output of **DESeq2** is a tabular file. The columns are:
 4.	Standard error estimate for the log2 fold change estimate.
 5.	[Wald](https://en.wikipedia.org/wiki/Wald_test) statistic.
 6.	*p*-value for the statistical significance of this change.
-7.	*p*-value adjusted for multiple testing with the Benjamini-Hochberg procedure which controls false discovery rate ([FDR](https://en.wikipedia.org/wiki/False_discovery_rate)).
+7.	*p*-value adjusted for multiple testing wiividual unpaired reads”th the Benjamini-Hochberg procedure which controls false discovery rate ([FDR](https://en.wikipedia.org/wiki/False_discovery_rate)).
+
 
 > ### :pencil2: Hands-on: Inspection of DESeq2 results
 >
@@ -247,45 +247,42 @@ The first output of **DESeq2** is a tabular file. The columns are:
 >    > </details>
 >    {: .question}
 >
+> In addition to the list of genes, **DESeq2** outputs a graphical summary of the results, useful to evaluate the quality of the experiment:
+>
+> 1. Histogram of *p*-values for all tests.
+> 2. [MA plot](https://en.wikipedia.org/wiki/MA_plot): global view of the relationship between the expression change of conditions (log ratios, M), the average expression strength of the genes (average mean, A), and the ability of the algorithm to detect differential gene expression. The genes that passed the significance threshold (adjusted p-value < 0.1) are colored in red.
+> 3. Principal Component Analysis ([PCA](https://en.wikipedia.org/wiki/Principal_component_analysis)) with the first two axes. 
+>
+    Each sample is plotted as an individual data point. This type of plot is useful for visualizing the overall effect of experimental covariates and batch effects.
+>
+>    > ### :question: Question
+>    >
+>    > What is the first axis separating?
+>    > 
+>    > <details>
+>    > <summary>Click to view answers</summary>
+>    > <ol type="1"> 
+>    > <li>The first axis is separating the genotype</li>
+>    > </ol>
+>    > </details>
+>    {: .question}
+>
+> 4. Heatmap of sample-to-sample distance matrix: overview over similarities and dissimilarities between samples
+>
+>    > ### :question: Question
+>    >
+>    > How are the samples grouped?
+>    > 
+>    >    <details>
+>    >    <summary>Click to view answers</summary>
+>    >    <ol type="1">
+>    >    <li>They are grouped by the genotype</li>
+>    >    </ol>
+>    >    </details>
+>    {: .question}
+>
+> 5. Dispersion estimates: gene-wise estimates (black), the fitted values (red), and the final maximum a posteriori estimates used in testing (blue)
 {: .hands_on}
-
-
-In addition to the list of genes, **DESeq2** outputs a graphical summary of the results, useful to evaluate the quality of the experiment:
-
-1. Histogram of *p*-values for all tests.
-2. [MA plot](https://en.wikipedia.org/wiki/MA_plot): global view of the relationship between the expression change of conditions (log ratios, M), the average expression strength of the genes (average mean, A), and the ability of the algorithm to detect differential gene expression. The genes that passed the significance threshold (adjusted p-value < 0.1) are colored in red.
-3. Principal Component Analysis ([PCA](https://en.wikipedia.org/wiki/Principal_component_analysis)) with the first two axes. 
-
-Each sample is plotted as an individual data point. This type of plot is useful for visualizing the overall effect of experimental covariates and batch effects.
-
-    > ### :question: Question
-    >
-    > What is the first axis separating?
-    > 
-    >    <details>
-    >    <summary>Click to view answers</summary>
-    >    <ol type="1">    
-    >    <li>The first axis is separating the genotype</li>
-    >    </ol>
-    >    </details>
-    {: .question}
-	
-4. Heatmap of sample-to-sample distance matrix: overview over similarities and dissimilarities between samples
-
-    > ### :question: Question
-    >
-    > How are the samples grouped?
-    > 
-    >    <details>
-    >    <summary>Click to view answers</summary>
-    >    <ol type="1">    
-    >    <li>They are grouped by the genotype</li>
-    >    </ol>
-    >    </details>
-    {: .question}
-
-5. Dispersion estimates: gene-wise estimates (black), the fitted values (red), and the final maximum a posteriori estimates used in testing (blue)
-
 
 Since this is a very small dataset, most of the plots are not very meaningfull. To have a more realistic idea of such an analysis, let use a dataset that considers all genes. In their paper, Trapnell and colleagues [(Trapnell et. al, 2012)](https://www.ncbi.nlm.nih.gov/pubmed/22383036) created an artificial *Drosophila melanogaster* dataset with 2 conditions and 3 replicates each, where 300 genes were perturbed in-silico.  The original "raw" data and processed files can be found [here](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32038).
 
@@ -312,8 +309,8 @@ Since this is a very small dataset, most of the plots are not very meaningfull. 
 > ### :pencil2: Hands-on (optional): edgeR with Trapnell data
 >
 > 1. **edgeR** :wrench:: Create a Design Matrix for **edgeR** with:
->    - "trapnell_counts.tab" as Expression Matrix
->    - Condition as Factor
+>    - Expression Matrix: `trapnell_counts.tab`
+>    - Factor: write "Condition"
 >    - C1 as the first Factor Level and select appropriate columns in the expression matrix
 >    - Add C2 as another Factor level and select appropriate columns in the expression matrix
 >
@@ -330,7 +327,7 @@ Since this is a very small dataset, most of the plots are not very meaningfull. 
 >    {: .question}
 >
 > 1. **edgeR** :wrench:: Perform Differential Gene Expression Analysis with **edgeR**:
->    - "trapnell_counts.tab" as Expression Matrix
+>    - Expression Matrix: `trapnell_counts.tab`
 >    - The generated design matrix as Design Matrix
 >    - C1-C2 as contrast
 >
@@ -379,7 +376,7 @@ In this tutorial, we went briefly through the steps in the data analysis of diff
 >    {: .question}
 {: .hands_on}
 
-
+> ![](images/Diagram.png)
 
 # Mapping of reads to a Reference Transcriptome
 
@@ -390,13 +387,13 @@ An alternative to mapping to the genome is to map directly against a reference t
 > ### :pencil2: Hands-on: Mapping of reads to a Reference Transcriptome using Salmon
 >
 > 1. **Salmon** :wrench:: Run **Salmon** with:
->    - "Single-end" as library type
->    - fastq of the different samples as input FastQ
->    - "Drosophila_melanogaster.BDGP6.88.sample.cdna.fa" as reference transcriptome
+>    - Select the reference transcriptome: `Drosophila_melanogaster.BDGP6.88.sample.cdna.fa`
+>    - Is this library mate-paired?: `Single-end`
+>    - FASTQ/FASTA file: fastq of the different samples
 >
 >    > ### :bulb: Tip: Running with multiple samples simultaneously
 >    >
->    > * In the "Reads" choose "Multiple Datasets" and select the fastq files for all samples
+>    > * In the "FASTQ/FASTA file" choose "Multiple Datasets" and select the fastq files for all samples.
 >    > * Press **Execute**
 >    {: .tip}
 >
@@ -431,7 +428,12 @@ An alternative to mapping to the genome is to map directly against a reference t
 >
 >    > ### :bulb: Tip
 >    >
->    > Use transcript counts and select in DESeq2 the transcript to gene file instead of the GTF
+>    > Use transcript counts and select in DESeq2 the transcript to gene file instead of the GTF.
+>    > 1. Choice of Input Data: `TPM values`
+>    > 2. Program used to generate TPMs: `Salmon`
+>    > 3. Gene mapping formart: `Transcript-ID and Gene-ID mapping file`
+>    > 4. Tabular file with transcript - Gene mapping: `Drosophila_melanogaster.BDGP6.88.sample.cdna.tr_to_gene.tab`
+>    > 5. Press **Execute**
 >    {: .tip}
 >
 >    > ### :question: Question
@@ -440,7 +442,7 @@ An alternative to mapping to the genome is to map directly against a reference t
 >    > 
 >    >    <details>
 >    >    <summary>Click to view answers</summary>
->    >    <ol type="1">    
+>    >    <ol type="1"> 
 >    >    <li>The results are not identical, but similar. On more realistic cases, results may diverge more.</li>
 >    >    </ol>
 >    >    </details>
@@ -483,18 +485,6 @@ You can visualize these alignments using software such as [IGV](http://software.
 > Manual inspection of alignments using IGV is important to have a broad overview of the experiment, particularly if we have a limited set of genes of interest. Nonetheless, we cannot inspect many genes this way. There are several ways to systematically assess quality of alignments. The fraction of aligned reads is one simple measure of quality, but it is very limited. Specialized tools such as [qualimap](http://qualimap.bioinfo.cipf.es/) and [RSeqQC](http://rseqc.sourceforge.net/) can produce a wide diversity of specialized plots e.g. fraction of reads mapping to exonic regions versus intronic or intergenic, positional bias of transcript coverage (potentially indicating eg. RNA degradation), etc... 
 {: .comment}
 >
-> ![](images/Diagram.png)
-
-
-
-
-
-
-
-
-
-
-
 
 
 
