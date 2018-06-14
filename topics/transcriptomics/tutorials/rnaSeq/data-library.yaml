@@ -1,6 +1,31 @@
 ---
 libraries:
-    - name: ""
+    - name: "Example RNA-Seq Data"
       files:
-          - url: ""
-            file_type: ""
+          - url: "https://zenodo.org/record/849901/files/Drosophila_melanogaster.BDGP6.85.sample.bed?download=1"
+            file_type: "bed"
+          - url: "https://zenodo.org/record/849901/files/Drosophila_melanogaster.BDGP6.85.sample.gtf?download=1"
+            file_type: "gtf"
+          - url: "https://zenodo.org/record/849901/files/Drosophila_melanogaster.BDGP6.88.sample.cdna.fa?download=1"
+            file_type: "fasta"
+          - url: "https://zenodo.org/record/849901/files/Drosophila_melanogaster.BDGP6.88.sample.cdna.tr_to_gene.tab?download=1"
+            file_type: "tabular"
+          - url: "https://zenodo.org/record/849901/files/mut_lib1_R1.fq.gz?download=1"
+            file_type: "fastqsanger"
+          - url: "https://zenodo.org/record/849901/files/mut_lib1_R2.fq.gz?download=1"
+            file_type: "fastqsanger"
+          - url: "https://zenodo.org/record/849901/files/mut_lib2_R1.fq.gz?download=1"
+            file_type: "fastqsanger"
+          - url: "https://zenodo.org/record/849901/files/mut_lib2_R2.fq.gz?download=1"
+            file_type: "fastqsanger"
+          - url: "https://zenodo.org/record/849901/files/WT_lib1_R1.fq.gz?download=1"
+            file_type: "fastqsanger"
+          - url: "https://zenodo.org/record/849901/files/WT_lib1_R2.fq.gz?download=1"
+            file_type: "fastqsanger"
+          - url: "https://zenodo.org/record/849901/files/WT_lib2_R1.fq.gz?download=1"
+            file_type: "fastqsanger"
+          - url: "https://zenodo.org/record/849901/files/WT_lib2_R2.fq.gz?download=1"
+            file_type: "fastqsanger"
+
+
+
