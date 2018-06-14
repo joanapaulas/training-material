@@ -144,7 +144,7 @@ material:
     title: "Functional Enrichment Analysis"
     type: "tutorial"
     name: "functional-enrichment"
-    zenodo_link: ""
+    zenodo_link: "https://zenodo.org/record/1255038#.Wx4qTBwh3CI"
     workflows: no
     galaxy_tour: no
     hands_on: yes
@@ -160,7 +160,7 @@ material:
     title: "RNA-Seq Analysis"
     type: "tutorial"
     name: "rnaSeq"
-    zenodo_link: ""
+    zenodo_link: "https://zenodo.org/record/849901#.Wx6RLhwh3CI"
     workflows: no
     galaxy_tour: no
     hands_on: yes
