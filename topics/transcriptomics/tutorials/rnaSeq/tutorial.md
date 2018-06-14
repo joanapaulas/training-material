@@ -104,10 +104,16 @@ We can now map all the RNA sequences on the *Drosophila melanogaster* genome usi
 > ### :pencil2: Hands-on: Spliced mapping
 >
 > 1. **HISAT2** :wrench:: Run **HISAT2** with:
+>    - Input data format: `FASTQ`
+>    - Single end or paired reads?: `Individual unpaired reads`
+>    - Reads: `mut_lib1_R1 fastq` (.gz or not)
 >    - Source for the reference genome: `Use a built-in genome`
 >    - Select a reference genome: `D. melanogaster Aug. 2014 (BDGP Release 6 + ISO1 MT/dm6)(dm6)`
->    - Single-end or paired-end reads?: `Single-end`
->    - FASTA/Q file: `mut_lib1_R1 fastq` (.gz or not)
+>
+>    > ### :bulb: Tip: Different version
+>    >
+>    > * If you are using the Galaxy version 2.1.0, you don't need to define the "Input data format".
+>    {: .tip}
 >
 >    > ### :bulb: Tip: Running with multiple samples simultaneously
 >    >
@@ -309,8 +315,8 @@ Since this is a very small dataset, most of the plots are not very meaningfull. 
 > ### :pencil2: Hands-on (optional): edgeR with Trapnell data
 >
 > 1. **edgeR** :wrench:: Create a Design Matrix for **edgeR** with:
->    - Expression Matrix: `trapnell_counts.tab`
->    - Factor: write "Condition"
+>    - Expression matrix (read counts): `trapnell_counts.tab`
+>    - Factor/Condition: write "Condition"
 >    - C1 as the first Factor Level and select appropriate columns in the expression matrix
 >    - Add C2 as another Factor level and select appropriate columns in the expression matrix
 >
@@ -327,9 +333,10 @@ Since this is a very small dataset, most of the plots are not very meaningfull. 
 >    {: .question}
 >
 > 1. **edgeR** :wrench:: Perform Differential Gene Expression Analysis with **edgeR**:
->    - Expression Matrix: `trapnell_counts.tab`
->    - The generated design matrix as Design Matrix
->    - C1-C2 as contrast
+>    - Analysis type: `Multigroup test and/or complex designs with e.g. blocking`
+>    - Expression (read count) matrix: `trapnell_counts.tab`
+>    - Design matrix: the generated design matrix
+>    - Contrast (biological question): write "C1-C2"
 >
 >    > ### :question: Question
 >    >
