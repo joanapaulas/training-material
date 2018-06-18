@@ -49,10 +49,8 @@ The appropriate statistical test is the one-tailed variant of Fisher’s exact t
 For this first exercise we will use data from [Trapnell et al. 2014](https://www.ncbi.nlm.nih.gov/pubmed/22383036 "Trapnell et al. data"). In this work, the authors created an artificial dataset of gene expression in *Drosophila melanogaster*, where 300 random genes were set to be differentially expressed between two conditions.
 
 > ### {% icon hands_on %} Hands-on:
->
-> 1. **Create a new history** 
->
 > The datasets is available at [Zenodo](https://zenodo.org/record/1255038#.Wx4qTBwh3CI) to download.
+> 1. **Create a new history** 
 >
 > 2. **Upload to the Galaxy** the following files:
 >    - go.obo 
